@@ -968,8 +968,19 @@ function renderSetup() {
   ].sort((a, b) => a.localeCompare(b, "id")))];
   if (!topics.includes(setup.topic)) setup.topic = "Semua topik";
   const pool = setup.topic === "Semua topik" ? difficultyPool : difficultyPool.filter(item => item.topic === setup.topic);
-  const counts = [...new Set([5, 10, 15, 20, 30].filter(count => count <= pool.length).concat(pool.length ? [pool.length] : []))].sort((a, b) => a - b);
-  const count = Math.min(Number(setup.count) || 5, pool.length || 0);
+  const counts = Array.from({ length: 10 }, (_, index) => (index + 1) * 10)
+    .map(value => ({ value, disabled: value > pool.length }));
+  if (pool.length && pool.length % 10 !== 0) {
+    counts.push({ value: pool.length, disabled: false, label: `Semua soal · ${pool.length}` });
+  }
+  counts.sort((a, b) => a.value - b.value);
+  const requestedCount = Number(setup.count) || 10;
+  const count = pool.length
+    ? pool.length < 10
+      ? pool.length
+      : Math.min(pool.length, Math.min(100, Math.max(10, Math.ceil(requestedCount / 10) * 10)))
+    : 0;
+  setup.count = count;
   const formatSubjectLabel = selected?.name || "Pilih mata pelajaran";
   const validSetup = Boolean(setup.curriculum && selected &&
     (setup.education !== "SMK" || (setup.programId && (!programNeedsConcentration("SMK", setup.grade, setup.programId) || setup.concentration))) &&
@@ -1002,7 +1013,7 @@ function renderSetup() {
       <div class="setting-grid">
         <div><label class="form-label" for="topic-select">Bab atau topik</label><select class="form-control" id="topic-select">${topics.map(item => `<option value="${escapeHtml(item)}" ${setup.topic === item ? "selected" : ""}>${escapeHtml(item)}</option>`).join("")}</select></div>
         <div><label class="form-label" for="difficulty-select">Tingkat kesulitan</label><select class="form-control" id="difficulty-select">${["Campuran", "Mudah", "Sedang", "Sulit"].map(item => `<option ${setup.difficulty === item ? "selected" : ""}>${item}</option>`).join("")}</select></div>
-        <div><label class="form-label" for="count-select">Jumlah soal</label><select class="form-control" id="count-select" ${counts.length ? "" : "disabled"}>${counts.map(item => `<option value="${item}" ${count === item ? "selected" : ""}>${item} soal</option>`).join("")}</select></div>
+        <div><label class="form-label" for="count-select">Jumlah soal</label><select class="form-control" id="count-select" ${pool.length ? "" : "disabled"}>${counts.map(item => `<option value="${item.value}" ${item.disabled ? "disabled" : ""} ${count === item.value ? "selected" : ""}>${item.label || `${item.value} soal`}${item.disabled ? " · soal tambahan diperlukan" : ""}</option>`).join("")}</select></div>
         <div><label class="form-label" for="duration-select">Waktu per soal</label><select class="form-control" id="duration-select">${[10, 15, 20, 30].map(item => `<option value="${item}" ${Number(setup.duration) === item ? "selected" : ""}>${item} detik</option>`).join("")}</select></div>
         <div><label class="form-label" for="order-select">Urutan soal</label><select class="form-control" id="order-select"><option value="acak" ${setup.order === "acak" ? "selected" : ""}>Acak</option><option value="urut" ${setup.order === "urut" ? "selected" : ""}>Berurutan</option></select></div>
       </div>
