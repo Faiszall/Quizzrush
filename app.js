@@ -307,6 +307,104 @@ const BANKS = {
   ]
 };
 
+const electronicsFoundationQuestions = [
+  question("Komponen elektronika", "Mudah", "Komponen yang menyimpan muatan listrik adalah …", "Kapasitor", ["Sekring saja", "Sakelar saja", "Konektor"], "Kapasitor menyimpan energi dalam medan listrik."),
+  question("Pengukuran listrik dasar", "Mudah", "Satuan kuat arus listrik adalah …", "Ampere", ["Volt", "Ohm", "Watt"], "Arus listrik diukur dalam ampere."),
+  question("Rangkaian elektronika", "Mudah", "Fungsi resistor dalam rangkaian adalah …", "Menghambat atau membatasi arus", ["Menyimpan file", "Mengukur suhu tubuh", "Mengirim data internet"], "Resistor memberikan hambatan listrik pada rangkaian.")
+];
+
+const VOCATIONAL_QUESTION_BANKS = {
+  tjkt: {
+    "10": [
+      question("Pengenalan perangkat komputer dan jaringan", "Mudah", "Perangkat yang meneruskan data antarjaringan berdasarkan alamat IP adalah …", "Router", ["Monitor", "Keyboard", "Printer"], "Router membaca informasi jaringan pada paket untuk meneruskan data menuju jaringan tujuan."),
+      question("Pengenalan perangkat komputer dan jaringan", "Mudah", "Perangkat yang menghubungkan beberapa perangkat dalam satu jaringan lokal kabel adalah …", "Switch", ["Proyektor", "Pemindai", "Pengeras suara"], "Switch menghubungkan perangkat pada LAN dan meneruskan frame ke port tujuan."),
+      question("Dasar jaringan kabel dan nirkabel", "Mudah", "Media yang umum digunakan untuk menghubungkan komputer ke switch pada LAN kabel adalah …", "Kabel twisted pair dengan konektor yang sesuai", ["Kabel audio tanpa adaptor", "Kabel daya sebagai jalur data", "Kabel antena televisi tanpa perangkat jaringan"], "Kabel twisted pair seperti UTP dengan terminasi yang benar umum digunakan untuk Ethernet."),
+      question("Dasar jaringan kabel dan nirkabel", "Mudah", "Perangkat yang menyediakan akses jaringan nirkabel bagi klien Wi-Fi adalah …", "Access point", ["Sakelar lampu", "Penguat audio", "Papan ketik"], "Access point menyediakan koneksi nirkabel dan menjembatani klien Wi-Fi ke jaringan."),
+      question("Pengalamatan IP", "Mudah", "Alamat IPv4 memiliki panjang …", "32 bit", ["8 bit", "16 bit", "128 bit"], "Alamat IPv4 tersusun dari 32 bit dan biasanya ditulis sebagai empat oktet desimal."),
+      question("Pengalamatan IP", "Sedang", "Alamat 192.168.1.10 dengan subnet mask 255.255.255.0 berada pada jaringan …", "192.168.1.0/24", ["192.168.0.0/16", "192.168.1.10/32 saja", "192.168.10.0/24"], "Subnet mask /24 menunjukkan tiga oktet pertama sebagai bagian jaringan, yaitu 192.168.1.0."),
+      question("Pengalamatan IP", "Sedang", "Dalam sebuah LAN, alamat default gateway pada komputer biasanya menunjuk ke …", "Antarmuka router yang menghubungkan LAN ke jaringan lain", ["Alamat printer pada jaringan yang sama", "Alamat broadcast jaringan", "Alamat server DNS publik dalam semua keadaan"], "Default gateway adalah alamat perangkat router yang menjadi jalur keluar dari subnet lokal."),
+      question("Perangkat jaringan", "Mudah", "Fungsi utama modem pada layanan akses internet tertentu adalah …", "Mengubah atau menyesuaikan sinyal agar dapat digunakan pada media akses penyedia", ["Mencetak dokumen jaringan", "Menyimpan halaman web secara permanen", "Menggantikan semua fungsi switch"], "Modem memodulasi dan demodulasi atau menyesuaikan sinyal untuk teknologi akses yang digunakan."),
+      question("Perangkat jaringan", "Mudah", "Perangkat yang menghubungkan komputer ke jaringan dan memiliki alamat MAC adalah …", "Kartu antarmuka jaringan (NIC)", ["Heatsink", "Kipas casing", "Catu daya"], "NIC menyediakan antarmuka jaringan dan identitas lapisan tautan berupa alamat MAC."),
+      question("Dasar sistem operasi", "Mudah", "Salah satu fungsi sistem operasi pada komputer server adalah …", "Mengelola sumber daya perangkat keras dan layanan perangkat lunak", ["Mengubah kabel UTP menjadi fiber optik", "Menghilangkan kebutuhan konfigurasi jaringan", "Menggantikan fungsi semua perangkat jaringan"], "Sistem operasi mengelola proses, memori, perangkat, akun, dan layanan pada komputer."),
+      question("Dasar sistem operasi", "Sedang", "Mengapa akun pengguna pada komputer laboratorium sebaiknya memiliki hak akses sesuai kebutuhan saja?", "Untuk membatasi perubahan yang tidak diperlukan dan mengurangi risiko kesalahan", ["Agar semua pengguna dapat mengubah konfigurasi inti", "Supaya kata sandi tidak diperlukan", "Agar komputer tidak perlu diperbarui"], "Hak akses minimum membatasi dampak kesalahan dan membantu menjaga konfigurasi sistem."),
+      question("Keselamatan kerja dan budaya kerja industri", "Mudah", "Sebelum memasang atau melepas komponen komputer, langkah aman yang tepat adalah …", "Matikan perangkat, lepaskan sumber daya sesuai prosedur, dan ikuti arahan guru", ["Menyentuh pin komponen saat komputer menyala", "Membuka catu daya tanpa kewenangan", "Menarik kabel dengan paksa"], "Mematikan perangkat dan mengikuti prosedur keselamatan mengurangi risiko sengatan dan kerusakan komponen.")
+    ],
+    "11": [
+      question("Perancangan jaringan sesuai konsentrasi", "Sedang", "Sebelum menentukan perangkat dan topologi jaringan kantor kecil, langkah awal yang paling tepat adalah …", "Mengumpulkan kebutuhan pengguna, jumlah perangkat, layanan, dan cakupan area", ["Membeli router dengan spesifikasi tertinggi tanpa analisis", "Menetapkan semua komputer memakai satu alamat IP", "Menyambungkan kabel sebelum membuat rancangan"], "Rancangan jaringan sebaiknya didasarkan pada kebutuhan, skala, layanan, dan batasan lokasi."),
+      question("Perancangan jaringan sesuai konsentrasi", "Sedang", "Mengapa dokumentasi denah dan label port penting pada jaringan terstruktur?", "Memudahkan penelusuran koneksi dan pemeliharaan", ["Membuat alamat IP tidak diperlukan", "Meningkatkan kecepatan internet secara otomatis", "Menggantikan kebutuhan pengujian kabel"], "Denah dan label membantu teknisi mengidentifikasi jalur serta port saat perubahan atau gangguan."),
+      question("Routing dan switching", "Mudah", "Perangkat yang memilih jalur penerusan paket di antara subnet berbeda adalah …", "Router", ["Switch lapisan fisik tanpa fungsi routing", "Patch panel", "Access point dalam mode bridge saja"], "Router meneruskan paket antarjaringan berdasarkan tabel routing."),
+      question("Routing dan switching", "Sedang", "Sebuah komputer dapat berkomunikasi dengan perangkat satu subnet tetapi tidak dapat mencapai subnet lain. Pengaturan yang perlu diperiksa lebih dahulu adalah …", "Default gateway dan rute menuju jaringan tujuan", ["Resolusi layar komputer", "Nama berkas pada desktop", "Kecepatan kipas prosesor"], "Komunikasi lintas subnet memerlukan gateway dan rute yang sesuai."),
+      question("VLAN dan layanan jaringan", "Mudah", "VLAN digunakan pada switch terkelola untuk …", "Memisahkan jaringan logis pada infrastruktur fisik yang sama", ["Mengganti alamat MAC setiap perangkat", "Membuat kabel jaringan menjadi nirkabel", "Menyimpan cadangan listrik"], "VLAN membagi domain siaran secara logis sehingga kelompok jaringan dapat dipisahkan."),
+      question("VLAN dan layanan jaringan", "Sedang", "Port trunk pada switch umumnya digunakan untuk …", "Membawa lalu lintas beberapa VLAN di antara perangkat jaringan", ["Menghubungkan hanya satu komputer tanpa tag VLAN", "Mengukur panjang kabel", "Memberi daya ke monitor"], "Link trunk membawa lalu lintas beberapa VLAN, biasanya dengan penandaan sesuai konfigurasi perangkat."),
+      question("VLAN dan layanan jaringan", "Sedang", "Layanan DHCP membantu perangkat klien dengan cara …", "Memberikan konfigurasi IP secara otomatis dari lingkup yang disediakan", ["Menerjemahkan nama domain menjadi alamat IP", "Mengenkripsi semua berkas komputer", "Mengukur kualitas sinyal kabel"], "DHCP dapat membagikan alamat IP, subnet mask, gateway, dan parameter jaringan lain kepada klien."),
+      question("VLAN dan layanan jaringan", "Sedang", "Fungsi DNS pada jaringan adalah …", "Menerjemahkan nama domain menjadi informasi alamat yang diperlukan klien", ["Membagikan alamat IP secara dinamis", "Menyaring debu di ruang server", "Menghubungkan kabel fiber ke konektor"], "DNS membantu klien menemukan alamat yang terkait dengan nama domain."),
+      question("Administrasi sistem dan server", "Sedang", "Mengapa server perlu menerima pembaruan sistem melalui prosedur terencana?", "Untuk mengurangi kerentanan dan menjaga kestabilan layanan dengan risiko perubahan terkendali", ["Agar semua layanan selalu dimatikan permanen", "Supaya akun administrator dibagikan ke semua pengguna", "Untuk menghapus kebutuhan pencadangan"], "Pembaruan perlu diuji dan dijadwalkan agar perbaikan keamanan dilakukan sambil menjaga ketersediaan layanan."),
+      question("Administrasi sistem dan server", "Mudah", "Tujuan utama pencadangan konfigurasi server adalah …", "Memulihkan pengaturan ketika terjadi kerusakan atau perubahan yang gagal", ["Meningkatkan jangkauan Wi-Fi tanpa perangkat tambahan", "Mengganti semua proses pemantauan", "Menghapus kebutuhan dokumentasi"], "Cadangan yang teruji membantu pemulihan konfigurasi setelah gangguan atau kesalahan perubahan."),
+      question("Instalasi media jaringan", "Mudah", "Setelah kabel Ethernet diterminasi, cara yang tepat untuk memeriksa urutan dan kontinuitas kabel adalah …", "Menggunakan cable tester yang sesuai", ["Menghubungkan kabel ke stopkontak", "Mengukur kabel dengan termometer", "Menguji dengan menarik konektor sekuat-kuatnya"], "Cable tester memeriksa kontinuitas dan pemetaan pasangan kabel tanpa menghubungkannya ke sumber daya berbahaya."),
+      question("Instalasi media jaringan", "Sedang", "Saat merapikan kabel UTP untuk mengurangi gangguan, praktik yang baik adalah …", "Menghindari tekukan tajam dan menjaga kabel data dari sumber interferensi sesuai standar pemasangan", ["Menjepit kabel sampai jaketnya rusak", "Mengupas seluruh kabel agar lebih lentur", "Menyatukan kabel data dengan kabel daya tanpa jarak"], "Radius tekuk yang sesuai dan pemisahan dari sumber interferensi membantu menjaga kualitas transmisi.")
+    ],
+    "12": [
+      question("Implementasi dan pemeliharaan jaringan", "Sedang", "Sebelum mengubah konfigurasi router produksi, tindakan yang paling bertanggung jawab adalah …", "Mencadangkan konfigurasi dan menyiapkan rencana perubahan serta pemulihan", ["Mengubah banyak parameter tanpa catatan", "Menghapus konfigurasi lama sebelum membuat cadangan", "Membagikan kredensial administrator kepada pengguna"], "Cadangan, rencana, dan dokumentasi membantu membatasi dampak perubahan yang gagal."),
+      question("Implementasi dan pemeliharaan jaringan", "Sedang", "Dalam jadwal pemeliharaan jaringan, pemeriksaan log dan status perangkat berguna untuk …", "Menemukan gejala gangguan atau perubahan yang perlu ditindaklanjuti", ["Menghapus seluruh riwayat tanpa pemeriksaan", "Menggantikan semua pengujian koneksi", "Menjamin jaringan tidak akan pernah bermasalah"], "Log dan status memberi petunjuk untuk diagnosis, tetapi temuan tetap perlu diverifikasi."),
+      question("Implementasi dan pemeliharaan jaringan", "Sedang", "Setelah mengganti switch, langkah validasi yang tepat adalah …", "Memeriksa link, VLAN, konektivitas layanan, dan dokumentasi sesuai rencana uji", ["Menganggap semua layanan pasti normal karena lampu menyala", "Mengubah alamat semua klien secara acak", "Menghapus label port"], "Rencana uji memeriksa fungsi koneksi dan konfigurasi, tidak hanya indikator fisik perangkat."),
+      question("Keamanan jaringan", "Mudah", "Praktik yang tepat untuk akun administrator jaringan adalah …", "Menggunakan akun pribadi yang terlindungi dan hak akses terbatas sesuai tugas", ["Memakai satu kata sandi sederhana untuk semua orang", "Mengirim kata sandi melalui grup umum", "Membiarkan sesi administrator terbuka"], "Akun unik, perlindungan kredensial, dan pembatasan hak membantu akuntabilitas serta keamanan."),
+      question("Keamanan jaringan", "Sedang", "Mengapa firmware perangkat jaringan perlu diperbarui melalui sumber resmi dan prosedur sekolah?", "Untuk memperoleh perbaikan yang sah dan mengurangi risiko berkas atau perubahan yang tidak tepercaya", ["Agar semua port jaringan terbuka", "Supaya kata sandi dapat dihilangkan", "Untuk membuat perangkat tidak memerlukan konfigurasi"], "Sumber resmi dan prosedur uji mengurangi risiko memasang firmware yang salah atau tidak tepercaya."),
+      question("Keamanan jaringan", "Sedang", "Segmentasi VLAN untuk jaringan tamu sebaiknya dirancang agar …", "Akses tamu dibatasi hanya ke layanan yang diperlukan dan terpisah dari jaringan internal", ["Tamu dapat mengelola switch inti", "Semua perangkat memakai kata sandi yang sama", "Jaringan internal tidak memiliki kontrol akses"], "Pemisahan jaringan dan aturan akses membatasi jangkauan perangkat tamu."),
+      question("Fiber optik", "Mudah", "Sebelum melihat ujung serat optik, teknisi harus …", "Memastikan sumber cahaya optik dimatikan dan mengikuti prosedur keselamatan", ["Melihat langsung ke konektor untuk memeriksa cahaya", "Menyentuh permukaan ujung serat dengan jari", "Mengarahkan laser ke mata untuk menguji koneksi"], "Sumber optik dapat tidak terlihat; jangan melihat langsung ke konektor dan ikuti prosedur keselamatan."),
+      question("Fiber optik", "Sedang", "Fungsi alat ukur optical power meter adalah …", "Mengukur tingkat daya optik pada jalur fiber", ["Mengukur panjang alamat IP", "Menguji tegangan baterai laptop", "Membaca konfigurasi VLAN"], "Optical power meter mengukur daya optik pada panjang gelombang yang sesuai dengan alat dan prosedur."),
+      question("Fiber optik", "Sedang", "Mengapa radius tekuk minimum kabel fiber optik perlu dipatuhi saat pemasangan?", "Tekukan berlebihan dapat meningkatkan redaman atau merusak serat", ["Agar konektor berubah menjadi switch", "Supaya panjang gelombang bertambah", "Untuk menghilangkan kebutuhan pengujian"], "Tekukan tajam dapat menyebabkan kehilangan optik dan kerusakan fisik pada kabel."),
+      question("Monitoring dan troubleshooting", "Mudah", "Jika satu komputer tidak memperoleh alamat IP tetapi komputer lain normal, pemeriksaan awal yang tepat adalah …", "Memeriksa sambungan fisik, status adaptor, dan konfigurasi IP komputer tersebut", ["Mengganti router inti tanpa pemeriksaan", "Menghapus konfigurasi seluruh jaringan", "Menaikkan daya listrik perangkat"], "Gangguan yang hanya terjadi pada satu klien sebaiknya diawali dengan pemeriksaan lokal sebelum perubahan luas."),
+      question("Monitoring dan troubleshooting", "Sedang", "Perintah ping berhasil ke gateway tetapi gagal ke nama domain. Hal yang layak diperiksa berikutnya adalah …", "Resolusi DNS dan konektivitas menuju layanan tujuan", ["Warna kabel patch cord", "Resolusi layar monitor", "Pengaturan keyboard"], "Keberhasilan mencapai gateway menunjukkan koneksi lokal bekerja; kegagalan nama domain dapat berkaitan dengan DNS atau jalur lebih lanjut."),
+      question("Dokumentasi proyek dan budaya kerja industri", "Mudah", "Informasi yang sebaiknya dicatat setelah perubahan konfigurasi jaringan adalah …", "Waktu, perangkat, perubahan, hasil pengujian, dan pelaksana sesuai aturan sekolah", ["Kata sandi rahasia dalam catatan yang dibagikan umum", "Data pribadi pengguna yang tidak diperlukan", "Hanya nama teknisi tanpa rincian perubahan"], "Catatan perubahan yang relevan mendukung audit dan pemulihan; rahasia akses dan data pribadi harus dilindungi.")
+    ]
+  },
+  electronics: {
+    "10": [
+      ...electronicsFoundationQuestions,
+      question("Komponen elektronika", "Mudah", "Satuan hambatan listrik adalah …", "Ohm", ["Ampere", "Volt", "Watt"], "Hambatan listrik dinyatakan dalam ohm dengan simbol Ω."),
+      question("Komponen elektronika", "Mudah", "Komponen yang dirancang untuk mengalirkan arus terutama ke satu arah adalah …", "Dioda", ["Resistor", "Kapasitor", "Potensiometer"], "Dioda memiliki karakteristik penghantaran utama pada arah maju."),
+      question("Komponen elektronika", "Mudah", "LED sebaiknya dipasang bersama resistor pembatas arus agar …", "Arus LED tidak melebihi batas yang diizinkan", ["Tegangan sumber selalu menjadi nol", "LED dapat menyimpan program", "Frekuensi listrik berubah otomatis"], "Resistor seri membantu membatasi arus yang melewati LED."),
+      question("Pengukuran listrik dasar", "Sedang", "Resistor 6 Ω dialiri arus 2 A. Berapakah tegangan pada resistor?", "12 V", ["3 V", "8 V", "24 V"], "Menurut hukum Ohm, V = I × R = 2 A × 6 Ω = 12 V."),
+      question("Pengukuran listrik dasar", "Sedang", "Arus 0,5 A mengalir pada resistor 20 Ω. Daya yang dilepas resistor adalah …", "5 W", ["2,5 W", "10 W", "40 W"], "P = I² × R = (0,5 A)² × 20 Ω = 5 W."),
+      question("Penggunaan alat ukur", "Mudah", "Untuk mengukur tegangan pada sebuah komponen, voltmeter dipasang secara …", "Paralel terhadap komponen", ["Seri dengan komponen", "Terbuka tanpa menyentuh rangkaian", "Seri dengan sumber saja"], "Voltmeter mengukur beda potensial antara dua ujung komponen sehingga dipasang paralel."),
+      question("Penggunaan alat ukur", "Mudah", "Untuk mengukur arus yang melewati beban, amperemeter umumnya dipasang secara …", "Seri dengan beban", ["Paralel dengan sumber", "Paralel dengan beban", "Terpisah dari rangkaian"], "Arus beban harus melewati amperemeter, sehingga alat dipasang seri."),
+      question("Rangkaian elektronika", "Mudah", "Pada rangkaian seri, jika satu sambungan terputus, maka …", "Arus pada seluruh rangkaian berhenti", ["Arus otomatis menjadi dua kali lipat", "Semua komponen berubah menjadi sumber", "Tegangan sumber selalu hilang permanen"], "Rangkaian seri memiliki satu jalur; jalur yang terputus menghentikan arus."),
+      question("Rangkaian elektronika", "Sedang", "Dua resistor 100 Ω dan 220 Ω disusun seri. Hambatan totalnya adalah …", "320 Ω", ["120 Ω", "220 Ω", "22.000 Ω"], "Pada susunan seri, hambatan dijumlahkan: 100 Ω + 220 Ω = 320 Ω."),
+      question("Keselamatan kerja kelistrikan", "Mudah", "Sebelum mengubah sambungan pada rangkaian praktik, tindakan yang tepat adalah …", "Matikan sumber dan ikuti instruksi keselamatan guru", ["Memegang kabel terbuka untuk mencari arus", "Menghubungkan semua terminal sekaligus", "Melepas komponen saat rangkaian bertegangan"], "Sumber harus dimatikan dan prosedur keselamatan praktik harus diikuti sebelum mengubah rangkaian."),
+      question("Penggunaan alat ukur", "Sedang", "Sebelum mengukur resistansi komponen di dalam rangkaian, sebaiknya …", "Matikan sumber daya dan pastikan kapasitor telah ditangani sesuai arahan guru", ["Atur multimeter ke mode arus lalu hubungkan paralel", "Biarkan rangkaian menyala agar hasil lebih cepat", "Hubungkan probe tanpa memeriksa mode ukur"], "Pengukuran resistansi dilakukan tanpa rangkaian diberi daya; ikuti prosedur aman untuk kapasitor.")
+    ],
+    "11": [
+      ...electronicsFoundationQuestions,
+      question("Analisis rangkaian", "Mudah", "Resistor 1 kΩ dan 2,2 kΩ disusun seri. Hambatan totalnya adalah …", "3,2 kΩ", ["1,2 kΩ", "2,2 kΩ", "2,2 MΩ"], "Hambatan seri dijumlahkan: 1 kΩ + 2,2 kΩ = 3,2 kΩ."),
+      question("Analisis rangkaian", "Sedang", "Sumber 9 V dipasang pada resistor 3 kΩ. Arus ideal yang mengalir adalah …", "3 mA", ["0,33 mA", "3 A", "27 mA"], "I = V/R = 9 V/3000 Ω = 0,003 A atau 3 mA."),
+      question("Analisis rangkaian", "Sedang", "Pembagi tegangan memakai dua resistor sama besar secara seri pada sumber 12 V. Tegangan pada titik tengah terhadap negatif sumber adalah …", "6 V", ["3 V", "12 V", "24 V"], "Dua resistor sama membagi tegangan sumber secara sama, sehingga titik tengah idealnya 6 V."),
+      question("Analisis rangkaian", "Sedang", "Kapasitor ideal yang sudah terisi penuh oleh sumber DC tetap pada kondisi tunak akan bersifat seperti …", "Rangkaian terbuka terhadap arus DC", ["Hubung singkat permanen", "Sumber arus tanpa batas", "Resistor nol ohm"], "Setelah transien pengisian selesai, arus DC ideal melalui kapasitor menjadi nol."),
+      question("Komponen elektronika", "Sedang", "Penyearah setengah gelombang menggunakan dioda untuk …", "Melewatkan satu bagian polaritas gelombang AC", ["Mengubah AC menjadi gelombang persegi sempurna", "Menyimpan seluruh energi sebagai data", "Menaikkan frekuensi sumber tanpa rangkaian lain"], "Dioda pada penyearah setengah gelombang melewatkan satu polaritas dan menahan polaritas lainnya."),
+      question("Komponen elektronika", "Sedang", "Dioda Zener pada rangkaian regulator sederhana biasanya dimanfaatkan pada daerah …", "Tembus balik sesuai tegangan Zener dan batas arusnya", ["Bias maju tanpa resistor seri", "Hubung singkat dua arah", "Tidak diberi bias sama sekali"], "Pada daerah tembus balik yang dirancang dan dibatasi arus, tegangan Zener dapat menjadi acuan regulator."),
+      question("Komponen elektronika", "Sedang", "Pada transistor BJT yang digunakan sebagai penguat, perubahan kecil arus basis dapat mengendalikan …", "Perubahan arus kolektor yang lebih besar pada daerah kerja yang sesuai", ["Nilai hambatan bumi", "Warna kabel rangkaian", "Frekuensi sumber listrik rumah"], "BJT dapat mengendalikan arus kolektor melalui arus basis saat bias dan daerah kerjanya tepat."),
+      question("Komponen elektronika", "Sedang", "Untuk transistor silikon NPN mulai menghantar pada rangkaian emitor bersama, tegangan basis umumnya dibuat …", "Lebih positif sekitar 0,7 V daripada emitor", ["Lebih negatif tepat 12 V daripada emitor", "Sama dengan tegangan kolektor dalam semua keadaan", "Tepat 0 V tanpa memperhatikan emitor"], "Sambungan basis-emitor silikon biasanya mulai forward-bias pada sekitar 0,7 V; nilai sebenarnya bergantung arus dan komponen."),
+      question("Analisis rangkaian", "Sedang", "Konstanta waktu rangkaian RC dengan R = 1 kΩ dan C = 100 µF adalah …", "0,1 s", ["0,001 s", "1 s", "10 s"], "τ = R × C = 1000 Ω × 0,0001 F = 0,1 s."),
+      question("Penggunaan alat ukur", "Sedang", "Saat memakai osiloskop untuk melihat bentuk gelombang tegangan, probe dihubungkan …", "Melintang pada dua titik yang ingin dibandingkan", ["Seri agar seluruh arus beban melewati osiloskop", "Hanya ke satu titik tanpa referensi", "Ke terminal arus multimeter saja"], "Osiloskop menampilkan tegangan sebagai beda potensial antara ujung probe dan referensi ground."),
+      question("Keselamatan kerja kelistrikan", "Mudah", "Pemeriksaan kontinuitas kabel dengan multimeter dilakukan ketika …", "Rangkaian tidak diberi daya", ["Rangkaian diberi daya maksimum", "Probe arus dipasang paralel pada sumber", "Kabel sedang dihubung-singkatkan"], "Mode kontinuitas menggunakan sinyal kecil dari meter dan harus digunakan pada rangkaian tanpa daya.")
+    ],
+    "12": [
+      ...electronicsFoundationQuestions,
+      question("Rangkaian elektronika", "Sedang", "Penyearah jembatan satu fase menggunakan berapa dioda?", "Empat dioda", ["Satu dioda", "Dua dioda", "Enam dioda"], "Penyearah jembatan satu fase menggunakan empat dioda untuk menyearahkan kedua setengah gelombang."),
+      question("Rangkaian elektronika", "Sedang", "Pada catu daya penyearah, kapasitor filter terutama berfungsi untuk …", "Mengurangi riak tegangan keluaran", ["Mengubah semua arus menjadi arus bolak-balik", "Menghilangkan kebutuhan beban", "Menaikkan frekuensi sumber"], "Kapasitor mengisi dan melepaskan muatan di antara puncak sehingga riak keluaran berkurang."),
+      question("Rangkaian elektronika", "Sedang", "Komparator berbasis op-amp digunakan untuk …", "Membandingkan dua tegangan masukan", ["Menyimpan data tanpa catu daya", "Mengukur arus tanpa sensor", "Mengubah resistor menjadi kapasitor"], "Komparator membandingkan tegangan pada masukan dan mengubah keluaran mengikuti masukan yang lebih besar."),
+      question("Rangkaian elektronika", "Sedang", "Umpan balik negatif pada penguat op-amp umumnya membantu …", "Menstabilkan penguatan sesuai rancangan umpan balik", ["Membuat keluaran selalu sama dengan catu maksimum", "Menghilangkan semua komponen eksternal", "Membalik sumber DC menjadi AC"], "Umpan balik negatif mengendalikan penguatan tertutup dan memperbaiki kestabilan pada rentang kerja."),
+      question("Elektronika digital", "Mudah", "Keluaran gerbang AND bernilai logika 1 ketika …", "Semua masukannya bernilai 1", ["Sedikitnya satu masukan bernilai 1", "Semua masukannya bernilai 0", "Masukan selalu bergantian"], "Gerbang AND hanya menghasilkan 1 jika seluruh masukannya 1."),
+      question("Elektronika digital", "Sedang", "Pada kendali PWM, kenaikan duty cycle biasanya membuat …", "Nilai rata-rata daya ke beban meningkat pada kondisi sumber dan beban yang sama", ["Frekuensi sumber selalu menjadi nol", "Beban terputus permanen", "Tegangan sumber berubah polaritas"], "Duty cycle yang lebih besar memperpanjang waktu aktif tiap periode dan umumnya meningkatkan nilai rata-rata yang diterima beban."),
+      question("Komponen elektronika", "Sedang", "Transistor yang digunakan sebagai sakelar elektronik idealnya dioperasikan bergantian pada kondisi …", "Cut-off dan saturasi", ["Breakdown dan mengambang", "Kapasitif dan induktif", "Terbuka dan tanpa terminal"], "Sebagai sakelar, transistor umumnya dirancang pada kondisi cut-off (mati) dan saturasi (menyala)."),
+      question("Analisis dan troubleshooting", "Sedang", "Pada perangkat praktik tegangan rendah yang mati total, langkah awal yang aman adalah …", "Matikan sumber lalu periksa catu, konektor, dan sekring sesuai prosedur", ["Mengganti komponen secara acak saat rangkaian menyala", "Menyentuh semua titik untuk menemukan tegangan", "Menaikkan tegangan sumber tanpa batas"], "Mulailah dari pemeriksaan visual dan catu daya dalam keadaan aman, mengikuti prosedur serta arahan guru."),
+      question("Rangkaian elektronika", "Sulit", "Pada penyearah gelombang penuh satu fase dengan sumber 50 Hz, frekuensi riak sebelum filter ideal adalah …", "100 Hz", ["25 Hz", "50 Hz", "200 Hz"], "Penyearah gelombang penuh menghasilkan dua puncak keluaran tiap siklus, sehingga riaknya 2 × 50 Hz = 100 Hz."),
+      question("Pengukuran listrik dasar", "Sedang", "Jika keluaran sensor berubah menjadi sinyal tegangan kecil, rangkaian pengondisi sinyal dapat digunakan untuk …", "Menyesuaikan atau memperkuat sinyal agar dapat dibaca tahap berikutnya", ["Menghapus kebutuhan pengukuran", "Mengubah sensor menjadi sumber energi tanpa batas", "Menjamin pembacaan benar tanpa kalibrasi"], "Pengondisian dapat memperkuat, menyaring, atau menyesuaikan rentang sinyal; hasil tetap perlu diuji dan dikalibrasi."),
+      question("Komponen elektronika", "Mudah", "Kapasitor bypass/decoupling yang dipasang dekat pin catu IC terutama membantu …", "Mengurangi gangguan tegangan lokal berfrekuensi tinggi", ["Menggantikan semua kapasitor pada rangkaian", "Membuat IC bekerja tanpa catu", "Mengubah masukan digital menjadi mekanis"], "Kapasitor decoupling menyediakan jalur impedansi rendah lokal untuk gangguan cepat pada jalur catu."),
+      question("Komponen elektronika", "Sedang", "Pada MOSFET, terminal gate terutama mengendalikan kanal melalui …", "Tegangan listrik pada gate", ["Arus basis seperti BJT dalam semua kondisi", "Putaran mekanis pada drain", "Cahaya yang selalu mengenai source"], "Medan listrik akibat tegangan gate mengendalikan kanal MOSFET; gate idealnya menarik arus DC sangat kecil.")
+    ]
+  }
+};
+
 const BANK_KEY = {
   "Matematika": "matematika",
   "Bahasa Indonesia": "indonesia",
@@ -354,7 +452,15 @@ const LEGACY_SUBJECT_NAMES = {
 const DEFAULT_STATE = {
   player: { name: "Pemain", avatar: "eagle", xp: 0, badges: [], games: 0, totalAnswers: 0, totalCorrect: 0, hasRetried: false },
   settings: { theme: "light", sound: true, education: "SD", grade: "6", curriculum: "", programId: "", concentration: "" },
-  schoolCatalog: { enabledSubjectIds: [], excludedSubjectIds: [], subjectOverrides: {}, customSubjects: [] },
+  schoolCatalog: {
+    enabledSubjectIds: [],
+    excludedSubjectIds: [],
+    subjectOverrides: {},
+    customSubjects: [],
+    enabledProgramIds: [],
+    programOverrides: {},
+    customPrograms: []
+  },
   history: [],
   quizzes: [],
   daily: { date: "", done: false }
@@ -388,7 +494,10 @@ function loadState() {
         enabledSubjectIds: Array.isArray(saved.schoolCatalog?.enabledSubjectIds) ? saved.schoolCatalog.enabledSubjectIds : [],
         excludedSubjectIds: Array.isArray(saved.schoolCatalog?.excludedSubjectIds) ? saved.schoolCatalog.excludedSubjectIds : [],
         subjectOverrides: saved.schoolCatalog?.subjectOverrides && typeof saved.schoolCatalog.subjectOverrides === "object" ? saved.schoolCatalog.subjectOverrides : {},
-        customSubjects: Array.isArray(saved.schoolCatalog?.customSubjects) ? saved.schoolCatalog.customSubjects : []
+        customSubjects: Array.isArray(saved.schoolCatalog?.customSubjects) ? saved.schoolCatalog.customSubjects : [],
+        enabledProgramIds: Array.isArray(saved.schoolCatalog?.enabledProgramIds) ? saved.schoolCatalog.enabledProgramIds : [],
+        programOverrides: saved.schoolCatalog?.programOverrides && typeof saved.schoolCatalog.programOverrides === "object" ? saved.schoolCatalog.programOverrides : {},
+        customPrograms: Array.isArray(saved.schoolCatalog?.customPrograms) ? saved.schoolCatalog.customPrograms : []
       },
       history: Array.isArray(saved.history) ? saved.history : [],
       quizzes: Array.isArray(saved.quizzes) ? saved.quizzes : [],
@@ -412,6 +521,8 @@ const ui = {
   game: null,
   lastResult: null,
   showReview: true,
+  programEditorId: null,
+  programEditorConcentration: "",
   leaderboardPeriod: "Semua waktu",
   leaderboardSubject: "Semua mata pelajaran",
   leaderboardMode: "Semua mode",
@@ -453,7 +564,131 @@ function progressForLevel(xp = state.player.xp) {
   return { index, current, next, percent: next ? Math.max(0, Math.min(100, ((xp - current.xp) / (next.xp - current.xp)) * 100)) : 100 };
 }
 
-function subjectsFor(education, grade, curriculum, programId = "") {
+function schoolPrograms() {
+  const programs = VOCATIONAL_PROGRAMS.map(program => ({
+    ...program,
+    curriculums: program.curriculums || ["merdeka", "k13"],
+    ...state.schoolCatalog.programOverrides[program.id],
+    subjectsByGrade: {
+      ...Object.fromEntries(Object.entries(program.subjectsByGrade).map(([grade, offering]) => [grade, {
+        ...offering,
+        learningContent: VOCATIONAL_LEARNING_CONTENT[program.id]?.[grade] || "",
+        ...(state.schoolCatalog.programOverrides[program.id]?.subjectsByGrade?.[grade] || {})
+      }]))
+    },
+    subjectsByConcentration: {
+      ...program.subjectsByConcentration,
+      ...(state.schoolCatalog.programOverrides[program.id]?.subjectsByConcentration || {})
+    }
+  }));
+  return [...programs, ...state.schoolCatalog.customPrograms.map(program => ({
+    curriculums: ["merdeka", "k13"],
+    ...program
+  }))];
+}
+
+function normalizeSchoolProgram(program, id) {
+  if (!program || typeof program !== "object" || typeof id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
+    throw new Error("ID program keahlian tidak valid.");
+  }
+  const name = typeof program.name === "string" ? program.name.trim().slice(0, 100) : "";
+  const field = typeof program.field === "string" ? program.field.trim().slice(0, 80) : "";
+  const concentrations = Array.isArray(program.concentrations)
+    ? [...new Set(program.concentrations.filter(item => typeof item === "string").map(item => item.trim().slice(0, 80)).filter(Boolean))].slice(0, 20)
+    : null;
+  const curriculums = Array.isArray(program.curriculums)
+    ? [...new Set(program.curriculums.filter(item => ["merdeka", "k13"].includes(item)))]
+    : [];
+  if (!name || !field || !concentrations || !curriculums.length) {
+    throw new Error("Nama, bidang, konsentrasi, dan setidaknya satu kurikulum program wajib diisi.");
+  }
+  const subjectsByGrade = {};
+  for (const grade of ["10", "11", "12"]) {
+    const offering = program.subjectsByGrade?.[grade];
+    const subjectName = typeof offering?.name === "string" ? offering.name.trim().slice(0, 100) : "";
+    if (offering?.learningContent !== undefined && typeof offering.learningContent !== "string") {
+      throw new Error(`Ringkasan materi kelas ${grade} harus berupa teks.`);
+    }
+    const learningContent = (offering?.learningContent || VOCATIONAL_LEARNING_CONTENT[id]?.[grade] || "").trim().slice(0, 4000);
+    const materials = Array.isArray(offering?.materials)
+      ? [...new Set(offering.materials.filter(item => typeof item === "string").map(item => item.trim().slice(0, 160)).filter(Boolean))].slice(0, 30)
+      : [];
+    if (!subjectName || !materials.length) {
+      throw new Error(`Nama mata pelajaran dan bab/materi kelas ${grade} wajib diisi.`);
+    }
+    subjectsByGrade[grade] = { name: subjectName, materials, learningContent };
+  }
+  const subjectsByConcentration = {};
+  if (program.subjectsByConcentration !== undefined &&
+      (!program.subjectsByConcentration || typeof program.subjectsByConcentration !== "object" || Array.isArray(program.subjectsByConcentration))) {
+    throw new Error("Pemetaan konsentrasi program tidak valid.");
+  }
+  for (const [concentration, grades] of Object.entries(program.subjectsByConcentration || {})) {
+    if (!concentrations.includes(concentration) || !grades || typeof grades !== "object" || Array.isArray(grades)) {
+      throw new Error("Pemetaan konsentrasi program tidak cocok dengan daftar konsentrasi.");
+    }
+    const configuredGrades = {};
+    for (const [grade, offering] of Object.entries(grades)) {
+      if (!["10", "11", "12"].includes(grade)) throw new Error("Pemetaan materi hanya menerima kelas 10, 11, dan 12.");
+      const subjectName = typeof offering?.name === "string" ? offering.name.trim().slice(0, 100) : "";
+      if (offering?.learningContent !== undefined && typeof offering.learningContent !== "string") {
+        throw new Error(`Ringkasan materi kelas ${grade} untuk konsentrasi ${concentration} harus berupa teks.`);
+      }
+      const learningContent = (offering?.learningContent || "").trim().slice(0, 4000);
+      const materials = Array.isArray(offering?.materials)
+        ? [...new Set(offering.materials.filter(item => typeof item === "string").map(item => item.trim().slice(0, 160)).filter(Boolean))].slice(0, 30)
+        : [];
+      if (!subjectName || !materials.length) throw new Error(`Nama mapel dan materi kelas ${grade} untuk konsentrasi ${concentration} wajib diisi.`);
+      configuredGrades[grade] = { name: subjectName, materials, learningContent };
+    }
+    subjectsByConcentration[concentration] = configuredGrades;
+  }
+  return { id, name, field, concentrations, curriculums, subjectsByGrade, subjectsByConcentration };
+}
+
+function programNeedsConcentration(education, grade, programId) {
+  return education === "SMK" && String(grade) !== "10" &&
+    Boolean(schoolPrograms().find(program => program.id === programId)?.concentrations?.length);
+}
+
+function validProgramConcentration(programId, concentration) {
+  if (!concentration) return true;
+  return Boolean(schoolPrograms().find(program => program.id === programId)?.concentrations.includes(concentration));
+}
+
+function vocationalSubjectFor(grade, curriculum, programId, concentration) {
+  if (!state.schoolCatalog.enabledProgramIds.includes(programId)) return null;
+  const program = schoolPrograms().find(item => item.id === programId);
+  const offering = program?.subjectsByConcentration?.[concentration]?.[String(grade)] ||
+    program?.subjectsByGrade[String(grade)];
+  if (!program || !offering || !program.curriculums.includes(curriculum)) return null;
+  const name = offering.name.trim();
+  return {
+    id: `smk-${program.id}-${grade}`,
+    name,
+    education: "SMK",
+    grades: [String(grade)],
+    phases: [phaseForGrade("SMK", grade)],
+    phase: phaseForGrade("SMK", grade),
+    curriculums: program.curriculums,
+    schoolYear: CURRICULUM_SCHOOL_YEAR,
+    category: "kejuruan",
+    programId: program.id,
+    concentration: String(grade) === "10" ? "" : concentration,
+    learningContent: offering.learningContent || program.subjectsByGrade[String(grade)]?.learningContent || "",
+    icon: "⚙️",
+    description: `Contoh pemetaan kejuruan kelas ${grade} untuk ${program.name}. Cocokkan dengan kurikulum dan konsentrasi sekolah.`,
+    optional: false,
+    sourceUrl: "",
+    learningObjectives: [],
+    materials: [...offering.materials],
+    verificationStatus: "draft",
+    bankKey: BANK_KEY[name] || "",
+    bankCount: BANKS[BANK_KEY[name]]?.length || 0
+  };
+}
+
+function subjectsFor(education, grade, curriculum, programId = "", concentration = "") {
   if (!curriculum) return [];
   const enabled = new Set(state.schoolCatalog.enabledSubjectIds);
   const excluded = new Set(state.schoolCatalog.excludedSubjectIds);
@@ -469,9 +704,14 @@ function subjectsFor(education, grade, curriculum, programId = "") {
     subject.education === education &&
     String(subject.grade) === String(grade) &&
     subject.curriculum === curriculum &&
-    (!subject.programId || subject.programId === programId)
+    (!subject.programId || subject.programId === programId) &&
+    (!subject.concentration || subject.concentration === concentration) &&
+    (education !== "SMK" || (subject.programId && state.schoolCatalog.enabledProgramIds.includes(subject.programId)))
   );
-  return [...builtIn, ...custom.map(subject => ({
+  const vocationalSubject = education === "SMK" && programId
+    ? vocationalSubjectFor(grade, curriculum, programId, concentration)
+    : null;
+  return [...builtIn, ...(vocationalSubject ? [vocationalSubject] : []), ...custom.map(subject => ({
     ...subject,
     phase: phaseFor(subject.education, subject.grade),
     schoolYear: subject.schoolYear || CURRICULUM_SCHOOL_YEAR,
@@ -514,6 +754,7 @@ function normalizeQuestion(item) {
     explanation: String(item.explanation || "Periksa kembali konsep pada soal ini."),
     learningObjective: String(item.learningObjective || ""),
     sourceReference: String(item.sourceReference || ""),
+    source: String(item.questionSource || item.source || ""),
     verificationStatus: "unverified"
   };
 }
@@ -524,7 +765,22 @@ function hasDuplicatePrompts(questions) {
 }
 
 function allAvailableQuestions(subject) {
-  const builtin = ui.setup.includeUnmapped ? (BANKS[BANK_KEY[subject]] || []) : [];
+  const selectedSubject = subjectsFor(
+    ui.setup.education,
+    ui.setup.grade,
+    ui.setup.curriculum,
+    ui.setup.programId,
+    ui.setup.concentration
+  ).find(item => item.name === subject);
+  const vocationalQuestions = ui.setup.education === "SMK" && selectedSubject?.programId
+    ? (VOCATIONAL_QUESTION_BANKS[selectedSubject.programId]?.[String(ui.setup.grade)] || [])
+    : [];
+  const builtin = [
+    ...(ui.setup.includeUnmapped
+      ? (BANKS[BANK_KEY[subject]] || []).map(item => ({ ...item, questionSource: "unmapped-sample" }))
+      : []),
+    ...vocationalQuestions.map(item => ({ ...item, questionSource: "builtin-vocational" }))
+  ];
   const custom = state.quizzes
     .filter(quiz =>
       quiz.subject === subject &&
@@ -533,29 +789,57 @@ function allAvailableQuestions(subject) {
       (quiz.curriculum === ui.setup.curriculum || (!quiz.curriculum && ui.setup.includeUnmapped)) &&
       (quiz.curriculum || ui.setup.includeUnmapped) &&
       (ui.setup.education !== "SMK" || (quiz.curriculum
-        ? quiz.programId === ui.setup.programId && quiz.concentration === ui.setup.concentration
+        ? quiz.programId === ui.setup.programId && (String(ui.setup.grade) === "10" || quiz.concentration === ui.setup.concentration)
         : ui.setup.includeUnmapped))
     )
     .flatMap(quiz => quiz.questions.map(q => ({ ...q, topic: q.topic || quiz.title, sourceQuiz: quiz.title })));
   const unique = new Map();
   [...builtin, ...custom].forEach(item => {
     const normalized = normalizeQuestion(item);
-    if (normalized) unique.set(`${normalized.prompt}|${normalized.answer}`, { ...normalized, custom: Boolean(item.sourceQuiz), sourceQuiz: item.sourceQuiz || "" });
+    if (normalized) unique.set(`${normalized.prompt}|${normalized.answer}`, {
+      ...normalized,
+      source: item.sourceQuiz ? "custom" : normalized.source || "unmapped-sample",
+      custom: Boolean(item.sourceQuiz),
+      sourceQuiz: item.sourceQuiz || ""
+    });
   });
   return Array.from(unique.values());
 }
 
 function renderSchoolCatalogManager() {
+  const programs = schoolPrograms();
   const available = catalogEntries().filter(subject =>
     subject.education === ui.setup.education &&
     subject.grades.includes(String(ui.setup.grade)) &&
     (!ui.setup.curriculum || subject.curriculums.includes(ui.setup.curriculum)) &&
-    (subject.category !== "kejuruan" || subject.programId === "foundation" || subject.programId === ui.setup.programId)
+    subject.category !== "kejuruan"
   );
+  const editingProgram = ui.programEditorId && ui.programEditorId !== "new"
+    ? programs.find(program => program.id === ui.programEditorId)
+    : null;
+  const showProgramEditor = ui.setup.education === "SMK" && ui.programEditorId !== null;
+  const programEditor = showProgramEditor ? `<div class="divider"></div><h3>${editingProgram ? "Perbarui" : "Tambah"} program keahlian sekolah</h3>
+    <p class="muted-small">Contoh awal berstatus draf. Sesuaikan nomenklatur, konsentrasi, kurikulum, mata pelajaran, dan materi dengan dokumen resmi sekolah sebelum digunakan.</p>
+    <label class="form-label" for="program-name">Nama program keahlian *</label><input class="form-control" id="program-name" maxlength="100" value="${escapeHtml(editingProgram?.name || "")}" placeholder="Nama sesuai daftar program sekolah">
+    <label class="form-label" for="program-field">Bidang keahlian *</label><input class="form-control" id="program-field" maxlength="80" value="${escapeHtml(editingProgram?.field || "")}" placeholder="Contoh: Teknologi Informasi">
+    <label class="form-label" for="program-concentrations">Konsentrasi keahlian (satu per baris; kosong jika tidak ada)</label><textarea class="form-control" id="program-concentrations" rows="2" maxlength="1000" placeholder="Daftar sesuai konsentrasi yang dibuka sekolah">${escapeHtml((editingProgram?.concentrations || []).join("\n"))}</textarea>
+    <div class="form-label">Kurikulum yang tersedia</div><div class="setting-grid"><label><input type="checkbox" id="program-curriculum-merdeka" ${(editingProgram?.curriculums || ["merdeka", "k13"]).includes("merdeka") ? "checked" : ""}> Kurikulum Merdeka</label><label><input type="checkbox" id="program-curriculum-k13" ${(editingProgram?.curriculums || ["merdeka", "k13"]).includes("k13") ? "checked" : ""}> Kurikulum 2013</label></div>
+    ${editingProgram?.concentrations?.length ? `<label class="form-label" for="program-edit-concentration">Pemetaan kelas 11–12 untuk konsentrasi</label><select class="form-control" id="program-edit-concentration"><option value="">Materi umum / default program</option>${editingProgram.concentrations.map(concentration => `<option value="${escapeHtml(concentration)}" ${ui.programEditorConcentration === concentration ? "selected" : ""}>${escapeHtml(concentration)}</option>`).join("")}</select><p class="muted-small">Pilih konsentrasi sebelum mengedit materi. Simpan perubahan sebelum berpindah konsentrasi. Jika belum ada pemetaan khusus, materi menggunakan default program.</p>` : ""}
+    ${["10", "11", "12"].map(grade => {
+      const offering = grade === "10"
+        ? editingProgram?.subjectsByGrade?.[grade]
+        : (editingProgram?.subjectsByConcentration?.[ui.programEditorConcentration]?.[grade] || editingProgram?.subjectsByGrade?.[grade]);
+      const gradeTenDisabled = grade === "10" && ui.programEditorConcentration ? "disabled" : "";
+      return `<div class="divider"></div><h4>Kelas ${grade}${gradeTenDisabled ? " · berlaku untuk semua konsentrasi" : ""}</h4><label class="form-label" for="program-subject-${grade}">Nama mata pelajaran *</label><input class="form-control" id="program-subject-${grade}" maxlength="100" value="${escapeHtml(offering?.name || "")}" placeholder="Nama mapel kejuruan untuk kelas ${grade}" ${gradeTenDisabled}>
+        <label class="form-label" for="program-materials-${grade}">Bab dan materi (satu per baris) *</label><textarea class="form-control" id="program-materials-${grade}" rows="3" maxlength="1800" placeholder="Materi yang berbeda dan sesuai kelas ${grade}" ${gradeTenDisabled}>${escapeHtml((offering?.materials || []).join("\n"))}</textarea>
+        <label class="form-label" for="program-content-${grade}">Bahan bacaan / ringkasan pembelajaran</label><textarea class="form-control" id="program-content-${grade}" rows="4" maxlength="4000" placeholder="Ringkasan konsep dan kegiatan belajar kelas ${grade}" ${gradeTenDisabled}>${escapeHtml(offering?.learningContent || "")}</textarea>`;
+    }).join("")}
+    <div class="modal-actions"><button class="button button-ghost" data-action="cancel-school-program">Batal</button><button class="button button-primary" data-action="save-school-program">${editingProgram ? "Simpan perubahan" : "Tambah program"}</button></div>` : "";
   $("#modal-root").innerHTML = `<div class="modal-backdrop" data-action="close-modal"><div class="modal preview-modal" role="dialog" aria-modal="true" aria-labelledby="catalog-title">
     <h2 id="catalog-title">Katalog sekolah di perangkat ini</h2>
     <p>${escapeHtml(ui.setup.education)} kelas ${escapeHtml(ui.setup.grade)} · ${escapeHtml(ui.setup.curriculum || "pilih kurikulum")}. Atur daftar sesuai struktur pembelajaran sekolah; pilihan opsional hanya muncul setelah diaktifkan.</p>
     <div class="notice warning">Pengaturan ini hanya disimpan di browser ini. Tidak ada akun/peran admin, sinkronisasi sekolah, atau hak akses server pada aplikasi lokal.</div>
+    ${ui.setup.education === "SMK" ? `<div class="divider"></div><h3>Program keahlian yang tersedia di sekolah</h3><p class="muted-small">Contoh program nonaktif sampai sekolah memilih yang benar-benar tersedia. Gunakan edit untuk mengganti data contoh atau matikan program dengan tidak mencentangnya.</p><div class="preview-question-list">${programs.map(program => `<article class="review-item"><label><input type="checkbox" data-program-toggle="${escapeHtml(program.id)}" ${state.schoolCatalog.enabledProgramIds.includes(program.id) ? "checked" : ""}> <b>${escapeHtml(program.name)}</b> · ${escapeHtml(program.field)}</label><p class="muted-small">Konsentrasi: ${escapeHtml(program.concentrations.join(", ") || "ditentukan sekolah")} · kurikulum: ${escapeHtml(program.curriculums.join(", "))}</p><button class="button button-ghost" data-action="edit-school-program" data-id="${escapeHtml(program.id)}">Atur nama, konsentrasi, kelas, dan materi</button>${!VOCATIONAL_PROGRAMS.some(item => item.id === program.id) ? `<button class="button button-ghost" data-action="remove-school-program" data-id="${escapeHtml(program.id)}">Hapus program lokal</button>` : ""}</article>`).join("")}</div><button class="button button-primary" style="margin-top:10px" data-action="edit-school-program" data-id="new">Tambah program sekolah</button>${programEditor}` : ""}
     <div class="preview-question-list">${available.map(subject => `<label class="review-item"><input type="checkbox" data-catalog-toggle="${escapeHtml(subject.id)}" ${subject.optional ? (state.schoolCatalog.enabledSubjectIds.includes(subject.id) ? "checked" : "") : (state.schoolCatalog.excludedSubjectIds.includes(subject.id) ? "" : "checked")}> <b>${escapeHtml(subject.name)}</b> · ${escapeHtml(subject.category)}${subject.optional ? " · pilihan" : ""} · belum diverifikasi</label>`).join("") || `<p class="muted-small">Tidak ada mata pelajaran pada konteks ini.</p>`}</div>
     <div class="divider"></div><h3>Tambah mata pelajaran sekolah</h3>
     <label class="form-label" for="school-subject-name">Nama mata pelajaran</label><input class="form-control" id="school-subject-name" maxlength="80" placeholder="Contoh: Bahasa Daerah">
@@ -565,8 +849,8 @@ function renderSchoolCatalogManager() {
     <label class="form-label" for="school-subject-objectives">Tujuan/capaian pembelajaran (satu per baris)</label><textarea class="form-control" id="school-subject-objectives" rows="2" maxlength="1000" placeholder="Salin dari dokumen kurikulum/ATP sekolah"></textarea>
     <button class="button button-primary" style="margin-top:10px" data-action="add-school-subject">Tambah untuk kelas ini</button>
     <div class="divider"></div><h3>Materi khusus yang ditambahkan</h3>
-    <div class="preview-question-list">${state.schoolCatalog.customSubjects.filter(subject => subject.education === ui.setup.education && String(subject.grade) === String(ui.setup.grade) && (!ui.setup.curriculum || subject.curriculum === ui.setup.curriculum)).map(subject => `<article class="review-item"><b>${escapeHtml(subject.name)}</b> · ${escapeHtml(subject.category)}<p class="muted-small">Fase ${phaseFor(subject.education, subject.grade)} · ${escapeHtml(subject.sourceReference || "Tanpa referensi")} · ${escapeHtml(subject.verificationStatus || "unverified")}</p><p>Materi: ${escapeHtml((subject.materials || []).join(", ") || "belum diisi")}<br>Tujuan: ${escapeHtml((subject.learningObjectives || []).join("; ") || "belum diisi")}</p><button class="button button-ghost" data-action="remove-school-subject" data-id="${escapeHtml(subject.id)}">Hapus</button></article>`).join("") || `<p class="muted-small">Belum ada mata pelajaran tambahan.</p>`}</div>
-    <div class="divider"></div>    <p class="muted-small">Untuk mengubah nama, kelas/fase, kurikulum, kategori, materi, tujuan, referensi, atau program bawaan, ekspor JSON dan sunting properti subjectOverrides, lalu impor kembali. Perubahan lokal tidak mengubah sumber resmi.</p>
+    <div class="preview-question-list">    ${state.schoolCatalog.customSubjects.filter(subject => subject.education === ui.setup.education && String(subject.grade) === String(ui.setup.grade) && (!ui.setup.curriculum || subject.curriculum === ui.setup.curriculum) && (!subject.programId || subject.programId === ui.setup.programId) && (!subject.concentration || subject.concentration === ui.setup.concentration)).map(subject => `<article class="review-item"><b>${escapeHtml(subject.name)}</b> · ${escapeHtml(subject.category)}<p class="muted-small">Fase ${phaseFor(subject.education, subject.grade)} · ${escapeHtml(subject.sourceReference || "Tanpa referensi")} · ${escapeHtml(subject.verificationStatus || "unverified")}</p><p>Materi: ${escapeHtml((subject.materials || []).join(", ") || "belum diisi")}<br>Tujuan: ${escapeHtml((subject.learningObjectives || []).join("; ") || "belum diisi")}</p><button class="button button-ghost"  data-action="remove-school-subject" data-id="${escapeHtml(subject.id)}">Hapus</button></article>`).join("") || `<p class="muted-small">Belum ada mata pelajaran tambahan.</p>`}</div>
+    <div class="divider"></div><p class="muted-small">Mata pelajaran, bidang, kelas, kurikulum, konsentrasi, dan materi dapat disesuaikan di sini atau melalui ekspor/impor JSON. Semua perubahan lokal berstatus belum diverifikasi dan tidak mengubah sumber resmi.</p>
     <div class="modal-actions"><button class="button button-ghost" data-action="export-catalog">Ekspor konfigurasi</button><label class="button button-ghost" for="catalog-import-file">Impor konfigurasi</label><input id="catalog-import-file" type="file" accept="application/json,.json" class="hidden"><button class="button button-primary" data-action="close-modal">Selesai</button></div>
   </div></div>`;
 }
@@ -662,7 +946,7 @@ function openSetup() {
   ui.setup.curriculum = state.settings.curriculum || "";
   ui.setup.programId = state.settings.programId || "";
   ui.setup.concentration = state.settings.concentration || "";
-  const subjects = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId);
+  const subjects = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId, ui.setup.concentration);
   ui.setup.subject = subjects.some(subject => subject.name === ui.setup.subject) ? ui.setup.subject : subjects[0]?.name || "";
   ui.selectedCustomId = null;
   renderSetup();
@@ -671,19 +955,24 @@ function openSetup() {
 
 function renderSetup() {
   const setup = ui.setup;
-  const subjects = subjectsFor(setup.education, setup.grade, setup.curriculum, setup.programId);
+  const subjects = subjectsFor(setup.education, setup.grade, setup.curriculum, setup.programId, setup.concentration);
   if (!subjects.some(subject => subject.name === setup.subject)) setup.subject = subjects[0]?.name || "";
   const selected = subjects.find(subject => subject.name === setup.subject) || subjects[0];
+  const programs = schoolPrograms().filter(program => state.schoolCatalog.enabledProgramIds.includes(program.id));
+  const currentProgram = programs.find(program => program.id === setup.programId);
   const allPool = setup.subject ? allAvailableQuestions(setup.subject) : [];
   const difficultyPool = setup.difficulty === "Campuran" ? allPool : allPool.filter(item => item.difficulty === setup.difficulty);
-  const topics = ["Semua topik", ...new Set(difficultyPool.map(item => item.topic).filter(Boolean).sort((a, b) => a.localeCompare(b, "id")))];
+  const topics = ["Semua topik", ...new Set([
+    ...(selected?.materials || []),
+    ...difficultyPool.map(item => item.topic).filter(Boolean)
+  ].sort((a, b) => a.localeCompare(b, "id")))];
   if (!topics.includes(setup.topic)) setup.topic = "Semua topik";
   const pool = setup.topic === "Semua topik" ? difficultyPool : difficultyPool.filter(item => item.topic === setup.topic);
   const counts = [...new Set([5, 10, 15, 20, 30].filter(count => count <= pool.length).concat(pool.length ? [pool.length] : []))].sort((a, b) => a - b);
   const count = Math.min(Number(setup.count) || 5, pool.length || 0);
   const formatSubjectLabel = selected?.name || "Pilih mata pelajaran";
   const validSetup = Boolean(setup.curriculum && selected &&
-    (setup.education !== "SMK" || (setup.programId && setup.concentration)) &&
+    (setup.education !== "SMK" || (setup.programId && (!programNeedsConcentration("SMK", setup.grade, setup.programId) || setup.concentration))) &&
     pool.length > 0);
   $("#view-setup").innerHTML = `
     <button class="back-button" data-action="home">← Kembali ke beranda</button>
@@ -694,12 +983,14 @@ function renderSetup() {
       <label class="form-label" for="curriculum-select">Kurikulum sekolah *</label><select class="form-control" id="curriculum-select"><option value="">Pilih kurikulum sekolah</option><option value="merdeka" ${setup.curriculum === "merdeka" ? "selected" : ""}>Kurikulum Merdeka</option><option value="k13" ${setup.curriculum === "k13" ? "selected" : ""}>Kurikulum 2013 (K13) — jika masih digunakan sekolah</option></select>
       <div class="notice warning" style="margin-top:8px">Pilih kurikulum sekolahmu; aplikasi tidak mengasumsikan semua sekolah memakai kurikulum yang sama. Katalog dan bank bawaan belum diverifikasi untuk setiap sekolah/tahun ajaran.</div>
       <h2 class="step-title">Pilih tingkatan pendidikan</h2>
-      <div class="option-grid">${["SD", "SMP", "SMA", "SMK"].map(education => `<button class="choice-card ${setup.education === education ? "selected" : ""}" data-action="education" data-value="${education}"><strong>${education}</strong><small>${educationNames[education]}</small></button>`).join("")}</div>
+      <div class="option-grid">${["SD", "SMP", "SMA", "SMK"].map(education => `<button class="choice-card education-choice ${setup.education === education ? "selected" : ""}" data-action="education" data-value="${education}"><strong>${education}</strong><small>${educationNames[education]}</small></button>`).join("")}</div>
       <label class="form-label" for="grade-select">Pilih kelas</label><select class="form-control" id="grade-select">${classesFor(setup.education).map(grade => `<option value="${grade}" ${setup.grade === grade ? "selected" : ""}>${educationNames[setup.education]} · Kelas ${grade}</option>`).join("")}</select>
-      ${setup.education === "SMK" ? `<label class="form-label" for="program-select">Program keahlian *</label><select class="form-control" id="program-select"><option value="">Pilih program keahlian sekolah</option>${VOCATIONAL_PROGRAMS.map(program => `<option value="${program.id}" ${setup.programId === program.id ? "selected" : ""}>${escapeHtml(program.name)}</option>`).join("")}</select><label class="form-label" for="concentration-select">Konsentrasi keahlian (sesuai sekolah)</label><select class="form-control" id="concentration-select" ${setup.programId ? "" : "disabled"}><option value="">Pilih konsentrasi</option>${(VOCATIONAL_PROGRAMS.find(program => program.id === setup.programId)?.concentrations || []).map(item => `<option value="${escapeHtml(item)}" ${setup.concentration === item ? "selected" : ""}>${escapeHtml(item)}</option>`).join("")}</select>` : ""}
+      ${setup.education === "SMK" ? `<label class="form-label" for="program-select">Program keahlian yang tersedia di sekolah *</label><select class="form-control" id="program-select"><option value="">Pilih program sekolah</option>${programs.map(program => `<option value="${program.id}" ${setup.programId === program.id ? "selected" : ""}>${escapeHtml(program.name)}</option>`).join("")}</select><label class="form-label" for="concentration-select">Konsentrasi keahlian${programNeedsConcentration("SMK", setup.grade, setup.programId) ? " *" : " (jika tersedia; opsional di kelas 10)"}</label><select class="form-control" id="concentration-select" ${setup.programId ? "" : "disabled"}><option value="">${programNeedsConcentration("SMK", setup.grade, setup.programId) ? "Pilih konsentrasi sesuai sekolah" : "Opsional / tidak ditetapkan"}</option>${(currentProgram?.concentrations || []).map(item => `<option value="${escapeHtml(item)}" ${setup.concentration === item ? "selected" : ""}>${escapeHtml(item)}</option>`).join("")}</select><div class="notice warning">Pilih hanya program dan konsentrasi yang diaktifkan sekolah. Contoh materi berstatus draf; kelas 10 menggunakan Dasar-Dasar Program Keahlian, sedangkan kelas 11–12 memiliki pemetaan terpisah.</div>` : ""}
       <div class="divider"></div><h2 class="step-title">Mata pelajaran untuk konteks ini</h2>
-      <div class="subject-grid">${subjects.map(subject => `<button class="subject-card ${setup.subject === subject.name ? "selected" : ""}" data-action="subject" data-value="${escapeHtml(subject.name)}"><span class="subject-icon">${subject.icon}</span><span><strong>${escapeHtml(subject.name)}</strong><small>${escapeHtml(subject.category)}${subject.optional ? " · pilihan sekolah" : ""} · ${subject.verificationStatus === "verified" ? "terverifikasi" : "belum diverifikasi"}</small></span></button>`).join("") || (setup.curriculum
-        ? `<div class="empty-state"><strong>Belum ada mata pelajaran yang diaktifkan</strong><p>Guru atau pengelola sekolah dapat mengaktifkan mata pelajaran di katalog lokal.</p></div>`
+      <div class="subject-grid">${subjects.map(subject => `<button class="subject-card ${setup.subject === subject.name ? "selected" : ""}" data-action="subject" data-value="${escapeHtml(subject.name)}"><span class="subject-icon">${subject.icon}</span><span><strong>${escapeHtml(subject.name)}</strong><small>${escapeHtml(subject.category)}${subject.optional ? " · pilihan sekolah" : ""} · ${subject.verificationStatus === "verified" ? "terverifikasi" : "belum diverifikasi"}</small></span></button>`).join("") || (setup.curriculum && setup.education === "SMK" && !setup.programId
+        ? `<div class="empty-state"><strong>Pilih program keahlian yang benar-benar tersedia di sekolah</strong><p>Jika program belum tercantum, tambahkan dari pengelola katalog sekolah.</p><button class="button button-ghost" data-action="manage-curriculum">Kelola program sekolah</button></div>`
+        : setup.curriculum
+          ? `<div class="empty-state"><strong>Belum ada mata pelajaran yang diaktifkan</strong><p>Guru atau pengelola sekolah dapat mengaktifkan mata pelajaran di katalog lokal.</p></div>`
         : `<div class="empty-state curriculum-prompt"><strong>Pilih kurikulum sekolah untuk menampilkan mata pelajaran</strong><p>Pilih salah satu di sini—tidak perlu kembali ke bagian atas halaman.</p><div class="option-grid"><button class="choice-card" data-action="curriculum" data-value="merdeka"><strong>Kurikulum Merdeka</strong><small>Pilih jika digunakan sekolahmu</small></button><button class="choice-card" data-action="curriculum" data-value="k13"><strong>Kurikulum 2013 (K13)</strong><small>Pilih jika masih digunakan sekolahmu</small></button></div></div>`)}</div>
       <p class="muted-small">Fase SD: kelas 1–2 Fase A, 3–4 Fase B, 5–6 Fase C. Fase SMP: 7–9 Fase D. Fase SMA/SMK: 10 Fase E, 11–12 Fase F. Pemetaan fase ini belum menggantikan ATP/capaian sekolah.</p>
       <div class="divider"></div><h2 class="step-title">Pilih mode permainan</h2>
@@ -723,10 +1014,11 @@ function renderSetup() {
     <aside class="setup-aside"><div class="preview-cover">${selected?.icon || "🎯"}</div><div class="preview-meta"><span class="pill">${setup.education} · Kelas ${escapeHtml(setup.grade)}</span><span class="pill">${setup.curriculum ? (setup.curriculum === "k13" ? "Kurikulum 2013" : "Kurikulum Merdeka") : "Kurikulum belum dipilih"}</span><span class="pill">${setup.mode === "practice" ? "Latihan" : setup.mode === "exam" ? "Ujian" : "Tantangan"}</span></div>
       <h3 class="preview-title">${escapeHtml(formatSubjectLabel)}</h3><p class="preview-desc">${escapeHtml(selected?.description || "Pilih mata pelajaran untuk melihat ringkasan.")}. ${count || 0} soal dipilih dari ${pool.length} soal tersedia, ${setup.duration} detik per soal.</p>
       ${selected ? `<div class="notice info">Fase ${phaseFor(setup.education, setup.grade)} · ${escapeHtml(selected.category)} · ${escapeHtml(selected.verificationStatus || "unverified")}<br>Bab/materi: ${escapeHtml((selected.materials || []).join(", ") || "belum dipetakan")}<br>Tujuan/capaian: ${escapeHtml((selected.learningObjectives || []).join("; ") || "belum dicantumkan")}<br>Referensi: ${escapeHtml(selected.sourceReference || selected.sourceUrl || "belum dicantumkan")}</div>` : ""}
+      ${selected?.category === "kejuruan" ? `<section class="notice warning" aria-label="Bahan bacaan kejuruan"><strong>Bahan bacaan · draf untuk ditinjau guru</strong><p style="white-space:pre-line;margin:7px 0 0">${escapeHtml(selected.learningContent || "Ringkasan belum ditambahkan. Guru atau pengelola dapat mengisinya melalui Kelola katalog sekolah.")}</p><small>Ringkasan ini merupakan bahan belajar awal, bukan pengganti modul, SOP, atau ATP sekolah.</small></section>` : ""}
       <div class="divider"></div><div class="muted-small">🎲 Pilihan jawaban dan urutan soal dapat diacak.<br>🏅 Raih XP dan kumpulkan lencana pencapaian.<br>💾 Progres disimpan di perangkat ini.</div>
       <button class="button button-primary button-full" data-action="begin" ${validSetup ? "" : "disabled"}>Mulai kuis <span>→</span></button>
       <button class="button button-ghost button-full" data-action="creator">Buat kuis sendiri</button>
-      <p class="muted-small" style="margin:11px 0 0">${setup.education === "SMK" && (!setup.programId || !setup.concentration) ? "Pilih program dan konsentrasi keahlian sekolah untuk melanjutkan." : "Katalog sekolah tersimpan lokal; multiplayer real-time belum tersedia."}</p>
+      <p class="muted-small" style="margin:11px 0 0">${setup.education === "SMK" && (!setup.programId || (programNeedsConcentration("SMK", setup.grade, setup.programId) && !setup.concentration)) ? "Pilih program dan konsentrasi yang tersedia di sekolah untuk melanjutkan." : "Katalog sekolah tersimpan lokal; multiplayer real-time belum tersedia."}</p>
     </aside></div>`;
   state.settings.education = setup.education;
   state.settings.grade = setup.grade;
@@ -737,7 +1029,10 @@ function renderSetup() {
 }
 
 function getGamePool(subject = ui.setup.subject) {
-  const questions = allAvailableQuestions(subject).map(q => ({ ...q, source: q.custom ? "custom" : "unmapped-sample" }));
+  const questions = allAvailableQuestions(subject).map(q => ({
+    ...q,
+    source: q.source || (q.custom ? "custom" : "unmapped-sample")
+  }));
   return questions.filter(q =>
     (ui.setup.difficulty === "Campuran" || q.difficulty === ui.setup.difficulty) &&
     (ui.setup.topic === "Semua topik" || q.topic === ui.setup.topic)
@@ -746,7 +1041,8 @@ function getGamePool(subject = ui.setup.subject) {
 
 function startGame(quizOverride = null, options = {}) {
   const customQuiz = quizOverride || state.quizzes.find(quiz => quiz.id === ui.selectedCustomId) || null;
-  if (!customQuiz && !options.questions && (!ui.setup.curriculum || (ui.setup.education === "SMK" && (!ui.setup.programId || !ui.setup.concentration)))) {
+  if (!customQuiz && !options.questions && (!ui.setup.curriculum || (ui.setup.education === "SMK" &&
+    (!ui.setup.programId || (programNeedsConcentration("SMK", ui.setup.grade, ui.setup.programId) && !ui.setup.concentration))))) {
     showToast("Pilih kurikulum sekolah dan, untuk SMK, program keahlian terlebih dahulu.");
     return;
   }
@@ -1114,6 +1410,7 @@ function freshEditorDraft() {
   const grade = ui.setup.grade || "6";
   const curriculum = ui.setup.curriculum || "";
   const programId = ui.setup.programId || "";
+  const subjects = subjectsFor(education, grade, curriculum, programId, ui.setup.concentration);
   return {
     title: "",
     description: "",
@@ -1122,7 +1419,9 @@ function freshEditorDraft() {
     curriculum,
     programId,
     concentration: ui.setup.concentration || "",
-    subject: subjectsFor(education, grade, curriculum, programId)[0]?.name || "",
+    subject: subjects.some(subject => subject.name === ui.setup.subject)
+      ? ui.setup.subject
+      : subjects[0]?.name || "",
     duration: 20,
     questions: [{ topic: "", difficulty: "Sedang", prompt: "", options: ["", "", "", ""], answer: "", explanation: "", learningObjective: "", sourceReference: "" }]
   };
@@ -1143,7 +1442,9 @@ function renderEditorQuestion(item, index) {
 function renderCreator() {
   if (!ui.editorDraft) ui.editorDraft = freshEditorDraft();
   const draft = ui.editorDraft;
-  const subjects = subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId);
+  const subjects = subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId, draft.concentration);
+  const editorPrograms = schoolPrograms().filter(program => state.schoolCatalog.enabledProgramIds.includes(program.id));
+  const editorProgram = editorPrograms.find(program => program.id === draft.programId);
   if (!subjects.some(subject => subject.name === draft.subject)) draft.subject = subjects[0]?.name || "";
   $("#view-creator").innerHTML = `<button class="back-button" data-action="home">← Kembali ke beranda</button><div class="screen-heading"><div><p class="section-kicker">KREASIKAN MATERI BELAJARMU</p><h1>${ui.editorQuizId ? "Edit kuis" : "Buat kuis sendiri"}</h1><p>Susun soal pilihan ganda dan simpan di perangkat ini.</p></div><button class="button button-ghost" data-action="export-all">Ekspor JSON ↓</button></div>
     <div class="creator-layout"><div class="creator-card">
@@ -1153,7 +1454,7 @@ function renderCreator() {
       <div><label class="form-label" for="quiz-grade">Kelas *</label><select class="form-control" id="quiz-grade">${classesFor(draft.education).map(grade => `<option value="${grade}" ${draft.grade === grade ? "selected" : ""}>Kelas ${grade}</option>`).join("")}</select></div>
       <div><label class="form-label" for="quiz-curriculum">Kurikulum *</label><select class="form-control" id="quiz-curriculum"><option value="">Pilih kurikulum sekolah</option><option value="merdeka" ${draft.curriculum === "merdeka" ? "selected" : ""}>Kurikulum Merdeka</option><option value="k13" ${draft.curriculum === "k13" ? "selected" : ""}>Kurikulum 2013</option></select></div>
       <div><label class="form-label" for="quiz-subject">Mata pelajaran *</label><select class="form-control" id="quiz-subject" ${subjects.length ? "" : "disabled"}><option value="">Pilih mata pelajaran yang tersedia</option>${subjects.map(subject => `<option value="${escapeHtml(subject.name)}" ${draft.subject === subject.name ? "selected" : ""}>${escapeHtml(subject.name)} · ${escapeHtml(subject.category)}</option>`).join("")}</select></div>
-      ${draft.education === "SMK" ? `<div><label class="form-label" for="quiz-program">Program keahlian</label><select class="form-control" id="quiz-program"><option value="">Pilih program sekolah</option>${VOCATIONAL_PROGRAMS.map(program => `<option value="${program.id}" ${draft.programId === program.id ? "selected" : ""}>${escapeHtml(program.name)}</option>`).join("")}</select></div><div><label class="form-label" for="quiz-concentration">Konsentrasi keahlian</label><input class="form-control" id="quiz-concentration" maxlength="80" value="${escapeHtml(draft.concentration || "")}" placeholder="Sesuai konsentrasi di sekolah"></div>` : ""}
+      ${draft.education === "SMK" ? `<div><label class="form-label" for="quiz-program">Program keahlian</label><select class="form-control" id="quiz-program"><option value="">Pilih program sekolah yang aktif</option>${editorPrograms.map(program => `<option value="${program.id}" ${draft.programId === program.id ? "selected" : ""}>${escapeHtml(program.name)}</option>`).join("")}</select></div><div><label class="form-label" for="quiz-concentration">Konsentrasi keahlian${programNeedsConcentration("SMK", draft.grade, draft.programId) ? " *" : " (opsional jika belum ditetapkan)"}</label><select class="form-control" id="quiz-concentration"><option value="">${programNeedsConcentration("SMK", draft.grade, draft.programId) ? "Pilih konsentrasi sekolah" : "Tidak ditetapkan / opsional kelas 10"}</option>${(editorProgram?.concentrations || []).map(concentration => `<option value="${escapeHtml(concentration)}" ${draft.concentration === concentration ? "selected" : ""}>${escapeHtml(concentration)}</option>`).join("")}</select><small class="muted-small">Konsentrasi dan daftar program perlu dikonfirmasi oleh sekolah. Materi kejuruan berstatus draf.</small></div>` : ""}
       <div><label class="form-label" for="quiz-duration">Waktu per soal</label><select class="form-control" id="quiz-duration">${[10, 15, 20, 30].map(duration => `<option value="${duration}" ${Number(draft.duration) === duration ? "selected" : ""}>${duration} detik</option>`).join("")}</select></div></div>
       <div class="divider"></div><div class="panel-heading"><div><p class="section-kicker">EDITOR SOAL</p><h3>Empat pilihan · satu jawaban benar</h3></div><span class="pill">${draft.questions.length} soal</span></div>
       <div id="editor-question-list">${draft.questions.map(renderEditorQuestion).join("")}</div>
@@ -1188,13 +1489,16 @@ function validateDraft() {
     showToast("Isi judul kuis terlebih dahulu.");
     return false;
   }
-  if (!draft.curriculum || !subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId).some(subject => subject.name === draft.subject)) {
+  if (!draft.curriculum || !subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId, draft.concentration).some(subject => subject.name === draft.subject)) {
     showToast("Pilih kurikulum dan mata pelajaran yang tersedia untuk jenjang serta kelas ini.");
     $("#quiz-curriculum").focus();
     return false;
   }
-  if (draft.education === "SMK" && (!draft.programId || !draft.concentration)) {
-    showToast("Pilih program dan konsentrasi keahlian SMK.");
+  if (draft.education === "SMK" &&
+    (!state.schoolCatalog.enabledProgramIds.includes(draft.programId) ||
+      !validProgramConcentration(draft.programId, draft.concentration) ||
+      (programNeedsConcentration("SMK", draft.grade, draft.programId) && !draft.concentration))) {
+    showToast("Pilih program sekolah yang aktif dan konsentrasi jika diwajibkan untuk kelas tersebut.");
     $("#quiz-program").focus();
     return false;
   }
@@ -1240,8 +1544,8 @@ function saveQuiz(playAfterSave = false) {
     programId: draft.programId,
     concentration: draft.concentration,
     subject: draft.subject,
-    subjectCategory: subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId).find(subject => subject.name === draft.subject)?.category || "",
-    subjectVerificationStatus: subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId).find(subject => subject.name === draft.subject)?.verificationStatus || "unverified",
+    subjectCategory: subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId, draft.concentration).find(subject => subject.name === draft.subject)?.category || "",
+    subjectVerificationStatus: subjectsFor(draft.education, draft.grade, draft.curriculum, draft.programId, draft.concentration).find(subject => subject.name === draft.subject)?.verificationStatus || "unverified",
     duration: draft.duration,
     questions: draft.questions.map(questionItem => normalizeQuestion(questionItem))
   };
@@ -1278,17 +1582,18 @@ function importQuizzes(file) {
         const education = ["SD", "SMP", "SMA", "SMK"].includes(candidate.education) ? candidate.education : "SD";
         const curriculum = ["merdeka", "k13"].includes(candidate.curriculum) ? candidate.curriculum : "";
         const grade = classesFor(education).includes(String(candidate.grade)) ? String(candidate.grade) : classesFor(education)[0];
-        const programId = education === "SMK" && VOCATIONAL_PROGRAMS.some(program => program.id === candidate.programId) ? candidate.programId : "";
+        const programId = education === "SMK" && schoolPrograms().some(program => program.id === candidate.programId && state.schoolCatalog.enabledProgramIds.includes(program.id)) ? candidate.programId : "";
         const concentration = String(candidate.concentration || "").trim().slice(0, 80);
-        if (curriculum && education === "SMK" && (!programId || !concentration)) {
-          throw new Error(`Kuis SMK "${candidate.title}" harus mencantumkan program dan konsentrasi keahlian.`);
+        if (curriculum && education === "SMK" &&
+          (!programId || !validProgramConcentration(programId, concentration) || (programNeedsConcentration("SMK", grade, programId) && !concentration))) {
+          throw new Error(`Kuis SMK "${candidate.title}" harus memakai program yang diaktifkan sekolah dan konsentrasi jika diwajibkan.`);
         }
         const subjectExists = (curriculum && CURRICULUM_SUBJECTS.some(item =>
           item.education === education &&
           item.grades.includes(grade) &&
           item.name === candidate.subject &&
           (!curriculum || item.curriculums.includes(curriculum))
-        )) || (curriculum && subjectsFor(education, grade, curriculum, programId).some(item => item.name === candidate.subject)) ||
+        )) || (curriculum && subjectsFor(education, grade, curriculum, programId, concentration).some(item => item.name === candidate.subject)) ||
           (!curriculum && LEGACY_SUBJECT_NAMES[education].includes(candidate.subject));
         const subject = subjectExists ? candidate.subject : null;
         if (!subject) throw new Error(`Kuis "${candidate.title}" memerlukan jenjang, kelas, kurikulum, dan mata pelajaran yang cocok pada katalog lokal.`);
@@ -1383,12 +1688,56 @@ function importSchoolCatalog(file) {
         }
         subjectOverrides[id] = updated;
       }
+      const programOverridesInput = parsed.programOverrides || {};
+      if (!programOverridesInput || typeof programOverridesInput !== "object" || Array.isArray(programOverridesInput)) {
+        throw new Error("Format programOverrides tidak valid.");
+      }
+      const programOverrides = {};
+      for (const [id, override] of Object.entries(programOverridesInput)) {
+        if (!VOCATIONAL_PROGRAMS.some(program => program.id === id)) throw new Error(`Override program tidak dikenal: ${id}.`);
+        programOverrides[id] = normalizeSchoolProgram(override, id);
+      }
+      if (parsed.customPrograms !== undefined && !Array.isArray(parsed.customPrograms)) {
+        throw new Error("Daftar customPrograms tidak valid.");
+      }
+      const customPrograms = (parsed.customPrograms || [])
+        .map(program => normalizeSchoolProgram(program, program?.id));
+      if (customPrograms.some(program =>
+        !program.id.startsWith("school-program-") ||
+        VOCATIONAL_PROGRAMS.some(base => base.id === program.id)
+      ) || new Set(customPrograms.map(program => program.id)).size !== customPrograms.length) {
+        throw new Error("ID program tambahan harus unik dan menggunakan awalan school-program-.");
+      }
+      const programIds = new Set([
+        ...VOCATIONAL_PROGRAMS.map(program => program.id),
+        ...customPrograms.map(program => program.id)
+      ]);
+      const enabledProgramIdsInput = parsed.enabledProgramIds ?? [];
+      if (!Array.isArray(enabledProgramIdsInput) || enabledProgramIdsInput.some(id => typeof id !== "string" || !programIds.has(id))) {
+        throw new Error("Daftar program sekolah aktif tidak valid.");
+      }
       const customSubjects = parsed.customSubjects.map(subject => {
         const education = ["SD", "SMP", "SMA", "SMK"].includes(subject.education) ? subject.education : null;
         const grade = education && classesFor(education).includes(String(subject.grade)) ? String(subject.grade) : null;
         if (!subject || !education || !grade || !["merdeka", "k13"].includes(subject.curriculum) ||
             typeof subject.name !== "string" || !subject.name.trim() || !categories.includes(subject.category)) {
           throw new Error("Katalog berisi mata pelajaran dengan metadata yang tidak lengkap.");
+        }
+        if (education === "SMK" && subject.programId && !programIds.has(subject.programId)) {
+          throw new Error(`Program untuk mata pelajaran "${subject.name}" tidak dikenal.`);
+        }
+        const concentration = typeof subject.concentration === "string" ? subject.concentration.trim().slice(0, 80) : "";
+        if (concentration && (education !== "SMK" || !subject.programId)) {
+          throw new Error(`Konsentrasi untuk mata pelajaran "${subject.name}" hanya berlaku pada program SMK.`);
+        }
+        if (concentration) {
+          const program = customPrograms.find(item => item.id === subject.programId) ||
+            programOverrides[subject.programId] ||
+            VOCATIONAL_PROGRAMS.find(item => item.id === subject.programId);
+          const configuredProgram = programOverrides[subject.programId] ? { ...program, ...programOverrides[subject.programId] } : program;
+          if (!configuredProgram?.concentrations?.includes(concentration)) {
+            throw new Error(`Konsentrasi mata pelajaran "${subject.name}" tidak ditemukan pada programnya.`);
+          }
         }
         return {
           id: `school-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
@@ -1398,7 +1747,8 @@ function importSchoolCatalog(file) {
           phase: phaseFor(education, grade),
           schoolYear: CURRICULUM_SCHOOL_YEAR,
           curriculum: subject.curriculum,
-          programId: education === "SMK" && VOCATIONAL_PROGRAMS.some(program => program.id === subject.programId) ? subject.programId : "",
+          programId: education === "SMK" ? subject.programId || "" : "",
+          concentration,
           category: subject.category,
           description: "Diimpor dari konfigurasi sekolah; belum diverifikasi.",
           icon: "📘",
@@ -1413,7 +1763,10 @@ function importSchoolCatalog(file) {
         enabledSubjectIds: [...new Set(parsed.enabledSubjectIds.filter(id => typeof id === "string" && CURRICULUM_SUBJECTS.some(subject => subject.id === id)))],
         excludedSubjectIds: [...new Set((Array.isArray(parsed.excludedSubjectIds) ? parsed.excludedSubjectIds : []).filter(id => typeof id === "string" && CURRICULUM_SUBJECTS.some(subject => subject.id === id && !subject.optional)))],
         subjectOverrides,
-        customSubjects
+        customSubjects,
+        enabledProgramIds: [...new Set(enabledProgramIdsInput)],
+        programOverrides,
+        customPrograms
       };
       saveState();
       renderSchoolCatalogManager();
@@ -1501,14 +1854,101 @@ function handleClick(event) {
       break;
     case "curriculum":
       ui.setup.curriculum = value;
-      ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, value, ui.setup.programId)[0]?.name || "";
+      ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, value, ui.setup.programId, ui.setup.concentration)[0]?.name || "";
       ui.setup.topic = "Semua topik";
       renderSetup();
       saveState();
       break;
     case "manage-curriculum":
+      ui.programEditorId = null;
       renderSchoolCatalogManager();
       break;
+    case "edit-school-program":
+      ui.programEditorId = target.dataset.id || "new";
+      ui.programEditorConcentration = "";
+      renderSchoolCatalogManager();
+      break;
+    case "cancel-school-program":
+      ui.programEditorId = null;
+      ui.programEditorConcentration = "";
+      renderSchoolCatalogManager();
+      break;
+    case "save-school-program": {
+      const existing = schoolPrograms().find(program => program.id === ui.programEditorId);
+      const selectedConcentration = ui.programEditorConcentration;
+      const concentrations = $("#program-concentrations").value.split(/\r?\n/);
+      const enteredSubjectsByGrade = Object.fromEntries(["10", "11", "12"].map(grade => [
+        grade,
+        {
+          name: $(`#program-subject-${grade}`).value,
+          materials: $(`#program-materials-${grade}`).value.split(/\r?\n/),
+          learningContent: $(`#program-content-${grade}`).value
+        }
+      ]));
+      const curriculums = [
+        $("#program-curriculum-merdeka").checked ? "merdeka" : "",
+        $("#program-curriculum-k13").checked ? "k13" : ""
+      ].filter(Boolean);
+      const rawProgram = {
+        name: $("#program-name").value,
+        field: $("#program-field").value,
+        concentrations,
+        curriculums,
+        subjectsByGrade: selectedConcentration && existing ? existing.subjectsByGrade : enteredSubjectsByGrade,
+        subjectsByConcentration: Object.fromEntries(Object.entries(existing?.subjectsByConcentration || {})
+          .filter(([concentration]) => concentrations.some(item => item.trim() === concentration))
+          .map(([concentration, grades]) => [concentration, { ...grades }]))
+      };
+      if (selectedConcentration) {
+        rawProgram.subjectsByConcentration[selectedConcentration] = Object.fromEntries(["11", "12"].map(grade => [grade, enteredSubjectsByGrade[grade]]));
+      }
+      const slug = rawProgram.name.trim().toLocaleLowerCase("id")
+        .normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 30);
+      const id = existing?.id || `school-program-${slug || "keahlian"}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
+      try {
+        const configured = normalizeSchoolProgram(rawProgram, id);
+        if (!existing && schoolPrograms().some(program => program.name.toLocaleLowerCase("id") === configured.name.toLocaleLowerCase("id"))) {
+          throw new Error("Program dengan nama tersebut sudah ada di katalog lokal.");
+        }
+        if (existing && VOCATIONAL_PROGRAMS.some(program => program.id === id)) {
+          state.schoolCatalog.programOverrides[id] = configured;
+        } else if (existing) {
+          state.schoolCatalog.customPrograms = state.schoolCatalog.customPrograms.map(program => program.id === id ? configured : program);
+        } else {
+          state.schoolCatalog.customPrograms.push(configured);
+        }
+        state.schoolCatalog.enabledProgramIds = [...new Set([...state.schoolCatalog.enabledProgramIds, id])];
+        ui.setup.programId = id;
+        ui.setup.concentration = "";
+        ui.setup.subject = subjectsFor("SMK", ui.setup.grade, ui.setup.curriculum, id, "")[0]?.name || "";
+        ui.programEditorId = null;
+        ui.programEditorConcentration = "";
+        saveState();
+        renderSchoolCatalogManager();
+        renderSetup();
+        showToast("Program dan pemetaan materi lokal tersimpan sebagai draf.");
+      } catch (error) {
+        showToast(`Program belum disimpan: ${error.message}`);
+      }
+      break;
+    }
+    case "remove-school-program": {
+      const id = target.dataset.id;
+      state.schoolCatalog.customPrograms = state.schoolCatalog.customPrograms.filter(program => program.id !== id);
+      state.schoolCatalog.enabledProgramIds = state.schoolCatalog.enabledProgramIds.filter(item => item !== id);
+      delete state.schoolCatalog.programOverrides[id];
+      if (ui.setup.programId === id) {
+        ui.setup.programId = "";
+        ui.setup.concentration = "";
+        ui.setup.subject = "";
+      }
+      saveState();
+      renderSchoolCatalogManager();
+      renderSetup();
+      showToast("Program lokal dihapus dari katalog perangkat ini.");
+      break;
+    }
     case "toggle-school-subject": {
       const id = target.dataset.id;
       const subject = CURRICULUM_SUBJECTS.find(item => item.id === id);
@@ -1530,7 +1970,7 @@ function handleClick(event) {
         showToast("Isi nama dan pilih kurikulum sebelum menambahkan mata pelajaran.");
         break;
       }
-      if (subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId).some(subject => subject.name.toLocaleLowerCase() === name.toLocaleLowerCase())) {
+      if (subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId, ui.setup.concentration).some(subject => subject.name.toLocaleLowerCase() === name.toLocaleLowerCase())) {
         showToast("Mata pelajaran tersebut sudah tersedia pada konteks ini.");
         break;
       }
@@ -1543,6 +1983,7 @@ function handleClick(event) {
         schoolYear: CURRICULUM_SCHOOL_YEAR,
         curriculum: ui.setup.curriculum,
         programId: ui.setup.education === "SMK" ? ui.setup.programId : "",
+        concentration: ui.setup.education === "SMK" ? ui.setup.concentration : "",
         category: $("#school-subject-category").value,
         description: "Ditambahkan untuk sekolah ini; belum diverifikasi.",
         icon: "📘",
@@ -1565,10 +2006,13 @@ function handleClick(event) {
       renderSetup();
       break;
     case "export-catalog":
-      downloadJson({ schemaVersion: 1, ...state.schoolCatalog }, "quiz-master-katalog-sekolah.json");
+      downloadJson({ schemaVersion: 2, ...state.schoolCatalog }, "quiz-master-katalog-sekolah.json");
       break;
     case "begin":
-      if (!ui.setup.curriculum || (ui.setup.education === "SMK" && (!ui.setup.programId || !ui.setup.concentration)) || !$("#count-select").value) {
+      if (!ui.setup.curriculum || (ui.setup.education === "SMK" &&
+        (!state.schoolCatalog.enabledProgramIds.includes(ui.setup.programId) ||
+          (programNeedsConcentration("SMK", ui.setup.grade, ui.setup.programId) && !ui.setup.concentration))) ||
+        !$("#count-select").value) {
         showToast("Lengkapi kurikulum, konteks sekolah, dan jumlah soal yang tersedia terlebih dahulu.");
         break;
       }
@@ -1736,22 +2180,37 @@ function handleChange(event) {
   const target = event.target;
   if (target.id === "grade-select") {
     ui.setup.grade = target.value;
-    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId)[0]?.name || "";
+    ui.setup.concentration = "";
+    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId, "")[0]?.name || "";
     ui.setup.topic = "Semua topik";
     renderSetup();
   } else if (target.id === "curriculum-select") {
     ui.setup.curriculum = target.value;
-    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId)[0]?.name || "";
+    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId, ui.setup.concentration)[0]?.name || "";
     ui.setup.topic = "Semua topik";
     renderSetup();
   } else if (target.id === "program-select") {
     ui.setup.programId = target.value;
     ui.setup.concentration = "";
-    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId)[0]?.name || "";
+    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId, "")[0]?.name || "";
     renderSetup();
   } else if (target.id === "concentration-select") {
     ui.setup.concentration = target.value;
-    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId)[0]?.name || "";
+    ui.setup.subject = subjectsFor(ui.setup.education, ui.setup.grade, ui.setup.curriculum, ui.setup.programId, ui.setup.concentration)[0]?.name || "";
+    ui.setup.topic = "Semua topik";
+    renderSetup();
+  } else if (target.matches("[data-program-toggle]")) {
+    const id = target.dataset.programToggle;
+    state.schoolCatalog.enabledProgramIds = target.checked
+      ? [...new Set([...state.schoolCatalog.enabledProgramIds, id])]
+      : state.schoolCatalog.enabledProgramIds.filter(item => item !== id);
+    if (!target.checked && ui.setup.programId === id) {
+      ui.setup.programId = "";
+      ui.setup.concentration = "";
+      ui.setup.subject = "";
+    }
+    saveState();
+    renderSchoolCatalogManager();
     renderSetup();
   } else if (target.id === "unmapped-checkbox") {
     ui.setup.includeUnmapped = target.checked;
@@ -1812,16 +2271,17 @@ function handleChange(event) {
     renderCreator();
   } else if (target.id === "quiz-grade") {
     ui.editorDraft.grade = target.value;
-    ui.editorDraft.subject = subjectsFor(ui.editorDraft.education, ui.editorDraft.grade, ui.editorDraft.curriculum, ui.editorDraft.programId)[0]?.name || "";
+    ui.editorDraft.concentration = "";
+    ui.editorDraft.subject = subjectsFor(ui.editorDraft.education, ui.editorDraft.grade, ui.editorDraft.curriculum, ui.editorDraft.programId, "")[0]?.name || "";
     renderCreator();
   } else if (target.id === "quiz-curriculum") {
     ui.editorDraft.curriculum = target.value;
-    ui.editorDraft.subject = subjectsFor(ui.editorDraft.education, ui.editorDraft.grade, ui.editorDraft.curriculum, ui.editorDraft.programId)[0]?.name || "";
+    ui.editorDraft.subject = subjectsFor(ui.editorDraft.education, ui.editorDraft.grade, ui.editorDraft.curriculum, ui.editorDraft.programId, ui.editorDraft.concentration)[0]?.name || "";
     renderCreator();
   } else if (target.id === "quiz-program") {
     ui.editorDraft.programId = target.value;
     ui.editorDraft.concentration = "";
-    ui.editorDraft.subject = subjectsFor(ui.editorDraft.education, ui.editorDraft.grade, ui.editorDraft.curriculum, ui.editorDraft.programId)[0]?.name || "";
+    ui.editorDraft.subject = subjectsFor(ui.editorDraft.education, ui.editorDraft.grade, ui.editorDraft.curriculum, ui.editorDraft.programId, "")[0]?.name || "";
     renderCreator();
   } else if (target.id === "quiz-subject") {
     ui.editorDraft.subject = target.value;
@@ -1830,6 +2290,11 @@ function handleChange(event) {
     target.value = "";
   } else if (target.id === "quiz-concentration") {
     ui.editorDraft.concentration = target.value;
+    ui.editorDraft.subject = subjectsFor(ui.editorDraft.education, ui.editorDraft.grade, ui.editorDraft.curriculum, ui.editorDraft.programId, ui.editorDraft.concentration)[0]?.name || "";
+    renderCreator();
+  } else if (target.id === "program-edit-concentration") {
+    ui.programEditorConcentration = target.value;
+    renderSchoolCatalogManager();
   } else if (target.id === "quiz-duration") {
     ui.editorDraft.duration = Number(target.value);
   } else if (target.matches("[data-editor-field]")) {
