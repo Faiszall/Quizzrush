@@ -113,6 +113,26 @@ h1,h2,h3,p{margin-top:0}
 .choice-card.education-choice small,.dark .choice-card.education-choice small{color:#fff;opacity:.86}
 .choice-card.education-choice:hover,.dark .choice-card.education-choice:hover{filter:brightness(1.1)}
 .choice-card.education-choice.selected,.dark .choice-card.education-choice.selected{border-color:#fff;box-shadow:inset 0 0 0 2px #ffffffb3,0 0 0 2px #303747}
+.subject-card:nth-child(8n+1){background:#fff0ed;border-color:#f2c6bd}
+.subject-card:nth-child(8n+2){background:#fff7df;border-color:#eddaa0}
+.subject-card:nth-child(8n+3){background:#eaf6ff;border-color:#bedcf2}
+.subject-card:nth-child(8n+4){background:#edf8e9;border-color:#c9e2bd}
+.subject-card:nth-child(8n+5){background:#f2edff;border-color:#d4c9f0}
+.subject-card:nth-child(8n+6){background:#ffedf5;border-color:#edc7d9}
+.subject-card:nth-child(8n+7){background:#e8f8f5;border-color:#bce4dc}
+.subject-card:nth-child(8n){background:#f1f2f6;border-color:#d3d6df}
+.subject-card.selected{outline:2px solid #586de8;outline-offset:1px}
+.dark .subject-card:nth-child(8n+1){background:#482f37;border-color:#80505b}
+.dark .subject-card:nth-child(8n+2){background:#49402b;border-color:#76643c}
+.dark .subject-card:nth-child(8n+3){background:#293e53;border-color:#496888}
+.dark .subject-card:nth-child(8n+4){background:#304437;border-color:#527459}
+.dark .subject-card:nth-child(8n+5){background:#3c3452;border-color:#68588c}
+.dark .subject-card:nth-child(8n+6){background:#4a3041;border-color:#80556e}
+.dark .subject-card:nth-child(8n+7){background:#294742;border-color:#47786f}
+.dark .subject-card:nth-child(8n){background:#383d4b;border-color:#5a6173}
+.dark .subject-card.selected{outline-color:#aab6ff}
+.dark .subject-card small{color:#d0d5e5}
+.subject-icon img{width:100%;height:100%;object-fit:contain}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(-2deg)}}
 @keyframes countpop{0%{transform:scale(.7);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 @keyframes pulse{50%{transform:scale(1.04)}}
