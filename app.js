@@ -968,18 +968,9 @@ function renderSetup() {
   ].sort((a, b) => a.localeCompare(b, "id")))];
   if (!topics.includes(setup.topic)) setup.topic = "Semua topik";
   const pool = setup.topic === "Semua topik" ? difficultyPool : difficultyPool.filter(item => item.topic === setup.topic);
-  const counts = Array.from({ length: 10 }, (_, index) => (index + 1) * 10)
-    .map(value => ({ value, disabled: value > pool.length }));
-  if (pool.length && pool.length % 10 !== 0) {
-    counts.push({ value: pool.length, disabled: false, label: `Semua soal · ${pool.length}` });
-  }
-  counts.sort((a, b) => a.value - b.value);
+  const counts = Array.from({ length: 10 }, (_, index) => (index + 1) * 10);
   const requestedCount = Number(setup.count) || 10;
-  const count = pool.length
-    ? pool.length < 10
-      ? pool.length
-      : Math.min(pool.length, Math.min(100, Math.max(10, Math.ceil(requestedCount / 10) * 10)))
-    : 0;
+  const count = Math.min(100, Math.max(10, Math.ceil(requestedCount / 10) * 10));
   setup.count = count;
   const formatSubjectLabel = selected?.name || "Pilih mata pelajaran";
   const validSetup = Boolean(setup.curriculum && selected &&
@@ -1013,13 +1004,13 @@ function renderSetup() {
       <div class="setting-grid">
         <div><label class="form-label" for="topic-select">Bab atau topik</label><select class="form-control" id="topic-select">${topics.map(item => `<option value="${escapeHtml(item)}" ${setup.topic === item ? "selected" : ""}>${escapeHtml(item)}</option>`).join("")}</select></div>
         <div><label class="form-label" for="difficulty-select">Tingkat kesulitan</label><select class="form-control" id="difficulty-select">${["Campuran", "Mudah", "Sedang", "Sulit"].map(item => `<option ${setup.difficulty === item ? "selected" : ""}>${item}</option>`).join("")}</select></div>
-        <div><label class="form-label" for="count-select">Jumlah soal</label><select class="form-control" id="count-select" ${pool.length ? "" : "disabled"}>${counts.map(item => `<option value="${item.value}" ${item.disabled ? "disabled" : ""} ${count === item.value ? "selected" : ""}>${item.label || `${item.value} soal`}${item.disabled ? " · soal tambahan diperlukan" : ""}</option>`).join("")}</select></div>
+        <div><label class="form-label" for="count-select">Jumlah soal</label><select class="form-control" id="count-select" ${pool.length ? "" : "disabled"}>${counts.map(item => `<option value="${item}" ${count === item ? "selected" : ""}>${item} soal</option>`).join("")}</select></div>
         <div><label class="form-label" for="duration-select">Waktu per soal</label><select class="form-control" id="duration-select">${[10, 15, 20, 30].map(item => `<option value="${item}" ${Number(setup.duration) === item ? "selected" : ""}>${item} detik</option>`).join("")}</select></div>
         <div><label class="form-label" for="order-select">Urutan soal</label><select class="form-control" id="order-select"><option value="acak" ${setup.order === "acak" ? "selected" : ""}>Acak</option><option value="urut" ${setup.order === "urut" ? "selected" : ""}>Berurutan</option></select></div>
       </div>
       <div class="setting-grid"><label class="form-label"><input type="checkbox" id="hints-checkbox" ${setup.hints ? "checked" : ""}> Tampilkan petunjuk</label><label class="form-label"><input type="checkbox" id="explanation-checkbox" ${setup.explanations ? "checked" : ""}> Tampilkan pembahasan</label></div>
-      <label class="form-label"><input type="checkbox" id="unmapped-checkbox" ${setup.includeUnmapped ? "checked" : ""}> Izinkan bank/kuis lama yang belum dipetakan ke kurikulum dan kelas</label>
-      ${pool.length ? `<div class="notice ${pool.length < 10 ? "warning" : "info"}">${pool.length} soal tersedia untuk ${escapeHtml(formatSubjectLabel)}${setup.topic !== "Semua topik" ? ` · topik ${escapeHtml(setup.topic)}` : ""}${setup.difficulty !== "Campuran" ? ` · ${escapeHtml(setup.difficulty)}` : ""}. Status materi: belum diverifikasi.</div>` : `<div class="notice warning">${allPool.length ? `Belum ada soal yang cocok dengan topik atau kesulitan ini. Pilih topik lain, pilih Campuran, atau tambahkan soal.` : `Belum ada soal untuk ${escapeHtml(formatSubjectLabel)} yang terpetakan ke ${escapeHtml(setup.curriculum || "kurikulum yang dipilih")} kelas ${escapeHtml(setup.grade)}. Tambahkan kuis untuk konteks ini${setup.includeUnmapped ? " atau periksa apakah materi lama cocok." : ""}.`}</div>`}
+      <label class="form-label"><input type="checkbox" id="unmapped-checkbox" ${setup.includeUnmapped ? "checked" : ""}> Sertakan bank soal lama yang belum dipetakan</label>
+      ${pool.length && count > pool.length ? `<div class="notice warning">Bank soal ini berisi ${pool.length} soal unik. Soal akan diacak ulang hingga mencapai jumlah yang dipilih.</div>` : !pool.length ? `<div class="notice warning">${allPool.length ? `Belum ada soal yang cocok dengan topik atau kesulitan ini. Pilih topik lain, pilih Campuran, atau tambahkan soal.` : `Belum ada soal untuk ${escapeHtml(formatSubjectLabel)} yang terpetakan ke ${escapeHtml(setup.curriculum || "kurikulum yang dipilih")} kelas ${escapeHtml(setup.grade)}. Tambahkan kuis untuk konteks ini${setup.includeUnmapped ? " atau periksa apakah materi lama cocok." : ""}.`}</div>` : ""}
       <div class="notice info" style="margin-top:9px">${setup.mode === "exam" ? "Mode ujian: nilai akademik berdasarkan jawaban benar, tanpa bonus kecepatan. Pembahasan muncul setelah kuis selesai." : "Tantangan memakai bonus kecepatan; nilai akademik tetap dihitung dari akurasi jawaban."}</div>
     </div>
     <aside class="setup-aside"><div class="preview-cover">${selected?.icon || "🎯"}</div><div class="preview-meta"><span class="pill">${setup.education} · Kelas ${escapeHtml(setup.grade)}</span><span class="pill">${setup.curriculum ? (setup.curriculum === "k13" ? "Kurikulum 2013" : "Kurikulum Merdeka") : "Kurikulum belum dipilih"}</span><span class="pill">${setup.mode === "practice" ? "Latihan" : setup.mode === "exam" ? "Ujian" : "Tantangan"}</span></div>
@@ -1070,12 +1061,18 @@ function startGame(quizOverride = null, options = {}) {
     showToast("Belum ada soal yang terpetakan ke mata pelajaran, kelas, dan kurikulum terpilih. Tambahkan atau impor kuis yang sesuai.");
     return;
   }
-  const targetCount = options.questions ? pool.length : Math.min(Number(ui.setup.count) || 5, pool.length);
+  const targetCount = options.questions ? pool.length : Number(ui.setup.count) || 10;
   if (!Number.isInteger(targetCount) || targetCount < 1 || ![10, 15, 20, 30].includes(Number(customQuiz?.duration || ui.setup.duration))) {
     showToast("Pengaturan kuis tidak valid. Periksa jumlah soal dan waktu per soal.");
     return;
   }
-  const picked = ui.setup.order === "acak" || customQuiz || options.questions ? shuffle(pool).slice(0, targetCount) : pool.slice(0, targetCount);
+  const randomize = ui.setup.order === "acak" || customQuiz || options.questions;
+  const picked = [];
+  while (picked.length < targetCount) {
+    const round = randomize ? shuffle(pool) : pool;
+    picked.push(...round.slice(0, targetCount - picked.length));
+  }
+  if (randomize) picked.splice(0, picked.length, ...shuffle(picked));
   const deck = picked.map(shuffledQuestion);
   ui.game = {
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
