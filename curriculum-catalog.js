@@ -27,7 +27,7 @@ function catalogSubject(education, name, category, options = {}) {
     category,
     programId: options.programId || "",
     icon: options.icon || "📘",
-    iconImage: options.iconImage || (name === "Pendidikan Pancasila" ? "assets/icons/pancasila.svg" : ""),
+    iconImage: options.iconImage || (name === "Pendidikan Pancasila" ? "assets/icons/garuda-pancasila.png" : ""),
     description: options.description || "Materi mengikuti pengaturan sekolah.",
     optional: Boolean(options.optional),
     sourceUrl: "https://kurikulum.kemendikdasmen.go.id/",
