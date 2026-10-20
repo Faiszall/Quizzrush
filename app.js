@@ -451,7 +451,7 @@ const LEGACY_SUBJECT_NAMES = {
 
 const DEFAULT_STATE = {
   player: { name: "Pemain", avatar: "eagle", xp: 0, badges: [], games: 0, totalAnswers: 0, totalCorrect: 0, hasRetried: false },
-  settings: { theme: "light", sound: true, education: "SD", grade: "6", curriculum: "", programId: "", concentration: "" },
+  settings: { theme: "light", sound: true, music: true, education: "SD", grade: "6", curriculum: "", programId: "", concentration: "" },
   schoolCatalog: {
     enabledSubjectIds: [],
     excludedSubjectIds: [],
@@ -467,6 +467,13 @@ const DEFAULT_STATE = {
 };
 
 let storageLoadError = null;
+const gameMusic = {
+  context: null,
+  gain: null,
+  timer: null,
+  nextTime: 0,
+  step: 0
+};
 
 function avatarFor(value) {
   const legacyAvatarMap = { "🦁": "lion", "🦊": "fox", "🐼": "panda" };
@@ -881,23 +888,135 @@ function showToast(message, duration = 2500) {
 
 function beep(correct = true) {
   if (!state.settings.sound) return;
-  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContextClass) return;
-  const context = new AudioContextClass();
+  const context = getAudioContext();
+  if (!context) return;
+  if (context.state === "suspended") context.resume().catch(error => {
+    console.error("Gagal mengaktifkan audio permainan.", error);
+    showToast("Audio tidak dapat diaktifkan di browser ini.");
+  });
   const oscillator = context.createOscillator();
   const gain = context.createGain();
   oscillator.type = "sine";
   oscillator.frequency.value = correct ? 660 : 230;
-  gain.gain.value = 0.045;
+  gain.gain.setValueAtTime(0.045, context.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.12);
   oscillator.connect(gain);
   gain.connect(context.destination);
   oscillator.start();
   oscillator.stop(context.currentTime + 0.12);
-  oscillator.onended = () => context.close();
+  oscillator.onended = () => {
+    oscillator.disconnect();
+    gain.disconnect();
+  };
+}
+
+function getAudioContext() {
+  if (gameMusic.context) return gameMusic.context;
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextClass) return null;
+  gameMusic.context = new AudioContextClass();
+  return gameMusic.context;
+}
+
+function scheduleMusicNote(destination, midiNote, start, duration, volume, waveform = "triangle", attack = 0.025) {
+  const context = gameMusic.context;
+  const oscillator = context.createOscillator();
+  const envelope = context.createGain();
+  const end = start + duration;
+  oscillator.type = waveform;
+  oscillator.frequency.value = 440 * (2 ** ((midiNote - 69) / 12));
+  envelope.gain.setValueAtTime(0.0001, start);
+  envelope.gain.linearRampToValueAtTime(volume, start + attack);
+  envelope.gain.exponentialRampToValueAtTime(0.0001, end);
+  oscillator.connect(envelope);
+  envelope.connect(destination);
+  oscillator.start(start);
+  oscillator.stop(end + 0.02);
+  oscillator.onended = () => {
+    oscillator.disconnect();
+    envelope.disconnect();
+  };
+}
+
+function scheduleMusicStep() {
+  const context = gameMusic.context;
+  if (!context || !gameMusic.gain) return;
+  const tempo = 112;
+  const stepDuration = 60 / tempo / 2;
+  if (gameMusic.nextTime < context.currentTime - 0.25) {
+    gameMusic.nextTime = context.currentTime + 0.05;
+  }
+  const chords = [
+    [60, 64, 67],
+    [57, 60, 64],
+    [53, 57, 60],
+    [55, 59, 62]
+  ];
+  const melody = [
+    76, null, 79, 76, 74, null, 72, null,
+    72, null, 76, 72, 69, null, 72, null,
+    77, null, 81, 77, 76, null, 72, 74,
+    79, null, 76, 74, 72, null, 76, null
+  ];
+
+  while (gameMusic.nextTime < context.currentTime + 0.12) {
+    const step = gameMusic.step % melody.length;
+    const bar = Math.floor(step / 8);
+    const beat = step % 8;
+    const time = gameMusic.nextTime;
+    if (beat === 0) {
+      chords[bar].forEach(note => scheduleMusicNote(gameMusic.gain, note, time, stepDuration * 7.6, 0.035, "sine", 0.12));
+    }
+    if (beat % 2 === 0) {
+      scheduleMusicNote(gameMusic.gain, chords[bar][0] - 24, time, stepDuration * 1.7, 0.11, "triangle");
+    }
+    if (melody[step] !== null) {
+      scheduleMusicNote(gameMusic.gain, melody[step], time, stepDuration * 0.72, 0.095, "triangle");
+    }
+    gameMusic.step += 1;
+    gameMusic.nextTime += stepDuration;
+  }
+}
+
+function startBackgroundMusic() {
+  if (!state.settings.music || gameMusic.timer) return;
+  const context = getAudioContext();
+  if (!context) {
+    showToast("Browser ini tidak mendukung musik permainan.");
+    return;
+  }
+  gameMusic.gain = context.createGain();
+  gameMusic.gain.gain.setValueAtTime(0, context.currentTime);
+  gameMusic.gain.gain.linearRampToValueAtTime(0.35, context.currentTime + 0.6);
+  gameMusic.gain.connect(context.destination);
+  gameMusic.step = 0;
+  gameMusic.nextTime = context.currentTime + 0.05;
+  context.resume().then(() => {
+    if (gameMusic.gain) scheduleMusicStep();
+  }).catch(error => {
+    console.error("Gagal memulai musik permainan.", error);
+    showToast("Musik permainan tidak dapat diputar di browser ini.");
+    stopBackgroundMusic();
+  });
+  gameMusic.timer = window.setInterval(scheduleMusicStep, 100);
+}
+
+function stopBackgroundMusic() {
+  if (gameMusic.timer) window.clearInterval(gameMusic.timer);
+  gameMusic.timer = null;
+  if (!gameMusic.gain || !gameMusic.context) return;
+  const gain = gameMusic.gain;
+  gameMusic.gain = null;
+  const now = gameMusic.context.currentTime;
+  gain.gain.cancelScheduledValues(now);
+  gain.gain.setValueAtTime(Math.max(gain.gain.value, 0.0001), now);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.3);
+  window.setTimeout(() => gain.disconnect(), 350);
 }
 
 function setView(name) {
   stopGameTimers();
+  if (name !== "game") stopBackgroundMusic();
   ui.view = name;
   $$(".view").forEach(view => view.classList.toggle("hidden", view.id !== `view-${name}`));
   $$(".nav-link").forEach(button => button.classList.toggle("active", button.dataset.action === (name === "creator" ? "creator" : name === "leaderboard" ? "leaderboard" : "home")));
@@ -931,6 +1050,10 @@ function refreshHome() {
     return `<div class="badge-item ${earned ? "earned" : ""}" title="${escapeHtml(badge.description)}"><span class="badge-icon">${badge.icon}</span><span>${escapeHtml(badge.name)}${earned ? " ✓" : ""}</span></div>`;
   }).join("");
   $(".icon-button[data-action='sound']").textContent = state.settings.sound ? "🔊" : "🔇";
+  const musicButton = $(".icon-button[data-action='music']");
+  musicButton.textContent = state.settings.music ? "🎵" : "🎼";
+  musicButton.setAttribute("aria-pressed", String(state.settings.music));
+  musicButton.title = state.settings.music ? "Matikan musik permainan" : "Nyalakan musik permainan";
   $(".icon-button[data-action='theme']").textContent = state.settings.theme === "dark" ? "🌙" : "☀️";
   document.body.classList.toggle("dark", state.settings.theme === "dark");
 }
@@ -1103,6 +1226,7 @@ function startGame(quizOverride = null, options = {}) {
   };
   ui.lastResult = null;
   setView("game");
+  startBackgroundMusic();
   runCountdown(3);
 }
 
@@ -1833,6 +1957,14 @@ function handleClick(event) {
       saveState();
       refreshHome();
       showToast(state.settings.sound ? "Suara dinyalakan." : "Suara dimatikan.");
+      break;
+    case "music":
+      state.settings.music = !state.settings.music;
+      saveState();
+      refreshHome();
+      if (state.settings.music && ui.view === "game") startBackgroundMusic();
+      else stopBackgroundMusic();
+      showToast(state.settings.music ? "Musik permainan dinyalakan." : "Musik permainan dimatikan.");
       break;
     case "theme":
       state.settings.theme = state.settings.theme === "dark" ? "light" : "dark";

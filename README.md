@@ -15,7 +15,7 @@ Aplikasi kuis edukasi statis untuk belajar di browser. Tidak perlu instalasi pak
 - Profil pemain, XP, level, lencana, misi harian, dan papan peringkat lokal.
 - Editor kuis pilihan ganda dengan validasi, pratinjau, penyusunan ulang soal, duplikasi, impor, dan ekspor JSON.
 - Enam avatar karakter bergambar (elang, singa, serigala, harimau, rubah, dan panda) tersedia untuk profil pemain, hasil kuis, dan papan peringkat.
-- Tema terang/gelap, efek suara yang dapat dimatikan, serta tata letak responsif.
+- Tema terang/gelap, efek suara yang dapat dimatikan, dan backsound game orisinal yang dibuat secara algoritmik langsung di browser. Musik sintetis ini tidak memakai rekaman, sampel, atau melodi pihak lain, serta memiliki kontrol hidup/mati sendiri.
 
 ## Penyimpanan dan batasan
 
