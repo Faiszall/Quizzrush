@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c68">
+  <meta name="description" content="Quizzrush — belajar seru, berpikir cepat, raih prestasi!">
+  <title>Quizzrush</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" data-action="home" aria-label="Quizzrush, beranda">
+        <span class="brand-mark" aria-hidden="true">Q<span>+</span></span>
+        <span class="brand-name">Quizz<b>rush</b></span>
+      </a>
+      <nav class="topnav" aria-label="Navigasi utama">
+        <button class="nav-link active" data-action="home">Beranda</button>
+        <button class="nav-link" data-action="leaderboard">Peringkat</button>
+        <button class="nav-link" data-action="creator">Buat kuis</button>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-button" data-action="sound" aria-label="Nyalakan atau matikan suara" title="Suara">🔊</button>
+        <button class="icon-button" data-action="theme" aria-label="Ganti tema" title="Ganti tema">☀️</button>
+        <button class="profile-chip" data-action="profile" aria-label="Edit profil">
+          <span id="header-avatar"><img class="avatar-image" src="assets/avatars/eagle.jpeg" alt="Elang"></span><span id="header-name">Pemain</span><span class="chevron">⌄</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="view-home" class="view">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="sparkle">✦</span> ARENA BELAJAR INDONESIA</div>
+            <h1>Belajar seru,<br><span>berpikir cepat.</span></h1>
+            <p class="hero-subtitle">Asah pengetahuanmu, kumpulkan XP, dan raih prestasi di setiap permainan!</p>
+            <div class="hero-buttons">
+              <button class="button button-primary button-large" data-action="start">Mulai bermain <span>→</span></button>
+              <button class="button button-ghost button-large" data-action="help">Cara bermain</button>
+            </div>
+            <div class="hero-social-proof"><span class="avatar-stack">🧑‍🚀 🧑‍🔬 🤖</span><span>Petualangan ilmu dimulai dari sini</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="floating-note note-one">⭐ +XP</div><div class="floating-note note-two">💡</div>
+            <div class="mascot"><span class="mascot-cap">✦</span><span class="mascot-face">🤖</span></div>
+            <div class="art-base"></div>
+            <div class="art-caption"><span class="live-dot"></span> Siap untuk tantangan baru?</div>
+          </div>
+          <div class="hero-decor decor-one"></div><div class="hero-decor decor-two"></div>
+        </div>
+
+        <div class="welcome-row">
+          <div><p class="section-kicker">PILIH PETUALANGANMU</p><h2>Mau belajar apa hari ini?</h2></div>
+          <button class="text-button" data-action="start">Lihat semua kuis <span>→</span></button>
+        </div>
+        <div class="quick-grid">
+          <button class="quick-card quick-blue" data-action="start"><span class="quick-icon">🎮</span><span class="quick-label">Mulai bermain</span><span class="quick-description">Pilih kelas dan mulai kuis</span><span class="quick-arrow">↗</span></button>
+          <button class="quick-card quick-purple" data-action="creator"><span class="quick-icon">✍️</span><span class="quick-label">Buat kuis</span><span class="quick-description">Bikin soal versimu sendiri</span><span class="quick-arrow">↗</span></button>
+          <button class="quick-card quick-yellow" data-action="leaderboard"><span class="quick-icon">🏆</span><span class="quick-label">Papan peringkat</span><span class="quick-description">Lihat pencapaianmu</span><span class="quick-arrow">↗</span></button>
+          <button class="quick-card quick-green" data-action="help"><span class="quick-icon">💡</span><span class="quick-label">Petunjuk</span><span class="quick-description">Kenali cara bermain</span><span class="quick-arrow">↗</span></button>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="panel progress-panel">
+            <div class="panel-heading"><div><p class="section-kicker">PROGRES PEMAIN</p><h3>Perjalanan belajarmu</h3></div><button class="subtle-button" data-action="profile">Edit profil</button></div>
+            <div class="player-progress">
+              <div class="player-avatar" id="progress-avatar"><img class="avatar-image" src="assets/avatars/eagle.jpeg" alt="Elang"></div>
+              <div class="player-details"><strong id="progress-name">Pemain</strong><span id="level-name">Pemula · Level 1</span><div class="xp-track"><span id="xp-fill"></span></div><small id="xp-label">0 / 100 XP menuju level berikutnya</small></div>
+              <div class="progress-stat"><strong id="stat-xp">0</strong><span>Total XP</span></div>
+            </div>
+            <div class="stats-row"><div class="mini-stat"><span>🧠</span><strong id="stat-games">0</strong><small>Kuis selesai</small></div><div class="mini-stat"><span>✅</span><strong id="stat-correct">0</strong><small>Jawaban benar</small></div><div class="mini-stat"><span>🎖️</span><strong id="stat-badges">0</strong><small>Lencana</small></div></div>
+          </section>
+          <section class="panel mission-panel">
+            <div class="panel-heading"><div><p class="section-kicker">MISI HARIAN</p><h3>Langkah kecil, ilmu bertambah</h3></div><span class="mission-badge">+40 XP</span></div>
+            <div class="mission-content"><span class="mission-icon">📚</span><div><strong>Selesaikan satu kuis hari ini</strong><span>Belajar sedikit setiap hari membuatmu makin hebat.</span></div></div>
+            <div class="mission-progress"><div class="xp-track"><span id="mission-fill"></span></div><small id="mission-label">0 dari 1 kuis hari ini</small></div>
+            <button class="button button-dark button-full" data-action="start">Mulai misi <span>→</span></button>
+          </section>
+        </div>
+        <section class="panel badge-panel"><div class="panel-heading"><div><p class="section-kicker">KOLEKSI PENCAPAIAN</p><h3>Lencana yang kamu raih</h3></div><span class="muted" id="badge-count">0 lencana</span></div><div id="badge-list" class="badge-list"></div></section>
+        <footer class="app-footer"><span>© Quizzrush</span><span>Belajar seru, berpikir cepat, raih prestasi! <span class="footer-star">✦</span></span></footer>
+      </section>
+
+      <section id="view-setup" class="view hidden"></section>
+      <section id="view-game" class="view hidden"></section>
+      <section id="view-results" class="view hidden"></section>
+      <section id="view-leaderboard" class="view hidden"></section>
+      <section id="view-creator" class="view hidden"></section>
+      <section id="view-help" class="view hidden"></section>
+    </main>
+    <div id="toast-region" class="toast-region" role="status" aria-live="polite"></div>
+    <div id="modal-root"></div>
+  </div>
+  <script src="curriculum-catalog.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
